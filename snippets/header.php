@@ -14,7 +14,7 @@
             <li><a href="https://data-theft.swgaudit.com">Data Theft</a></li>
             <li><a href="https://cyberslacking.swgaudit.com">Cyber‑Slacking</a></li>
         </ul>
-        <a href="https://github.com/VashuKochar/swgaudit">
+        <a href="https://github.com/swgauditor/swgaudit">
             <img src="https://swgaudit.com/images/github-mark.svg" alt="GitHub" style="width:20px; height:20px; vertical-align:middle; padding-inline:10px;">
         </a>
     </nav>
