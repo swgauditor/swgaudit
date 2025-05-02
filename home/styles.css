@@ -1,0 +1,42 @@
+/* Hero Section */
+.hero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Simulation Links Section */
+.simulation-buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	justify-content: space-evenly;
+	width: 100%;
+	margin: 1.5rem;
+}
+
+.simulation-buttons .simulation-link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1.5rem;
+	width: 100%;
+	max-width: 200px; /* Set a max width */
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	background-color: var(--black);
+	transition: background-color 0.3s ease;
+}
+
+.simulation-buttons .simulation-link:hover {
+	background-color: var(--gray-600);
+}
+
+@media (max-width: 768px) {
+	.simulation-buttons {
+		flex-direction: column; /* Change to column for smaller screens */
+		align-items: center; /* Center align the buttons vertically */
+	}
+}

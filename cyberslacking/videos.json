@@ -1,0 +1,109 @@
+{
+    "categories": [
+        {
+            "name": "entertainment",
+            "title": "Entertainment",
+            "video": "YjlgahImVwI"
+        },
+        {
+            "name": "education",
+            "title": "Education",
+            "video": "zQGOcOUBi6s"
+        },
+        {
+            "name": "film-animation",
+            "title": "Film & Animation",
+            "video": "cqGjhVJWtEg"
+        },
+        {
+            "name": "autos-vehicles",
+            "title": "Autos & Vehicles",
+            "video": "ootFmPxtBIo"
+        },
+        {
+            "name": "music",
+            "title": "Music",
+            "video": "kJQP7kiw5Fk"
+        },
+        {
+            "name": "pets-animals",
+            "title": "Pets & Animals",
+            "video": "B3u4EFTwprM"
+        },
+        {
+            "name": "sports",
+            "title": "Sports",
+            "video": "K3o2QaaXN0o"
+        },
+        {
+            "name": "travel-events",
+            "title": "Travel & Events",
+            "video": "WT5JvAq50OE"
+        },
+        {
+            "name": "gaming",
+            "title": "Gaming",
+            "video": "QdBZY2fkU-0"
+        },
+        {
+            "name": "people-blogs",
+            "title": "People & Blogs",
+            "video": "H-1HEyPr4Ew"
+        },
+        {
+            "name": "news-politics",
+            "title": "News & Politics",
+            "video": "SQD7AO3_nmU"
+        },
+        {
+            "name": "howto-style",
+            "title": "Howto & Style",
+            "video": "Mg7aJdnbY48"
+        },
+        {
+            "name": "science-technology",
+            "title": "Science & Technology",
+            "video": "9hWQpY-656M"
+        },
+        {
+            "name": "movies",
+            "title": "Movies",
+            "video": "uYPbbksJxIg"
+        },
+        {
+            "name": "action-adventure",
+            "title": "Action/Adventure",
+            "video": "TcMBFSGVi1c"
+        },
+        {
+            "name": "drama",
+            "title": "Drama",
+            "video": "D30r0CwtIKc"
+        },
+        {
+            "name": "family",
+            "title": "Family",
+            "video": "LEjhY15eCx0"
+        },
+        {
+            "name": "foreign",
+            "title": "Foreign",
+            "video": "isOGD_7hNIY"
+        },
+        {
+            "name": "horror",
+            "title": "Horror",
+            "video": "k10ETZ41q5o"
+        },
+        {
+            "name": "thriller",
+            "title": "Thriller",
+            "video": "WR7cc5t7tv8"
+        },
+        {
+            "name": "trailers",
+            "title": "Trailers",
+            "video": "LembwKDo1Dk"
+        }
+    ]
+}

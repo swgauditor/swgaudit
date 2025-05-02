@@ -1,0 +1,371 @@
+/* Control Variables */
+
+:root {
+	/* ---------- Base Colors ---------- */
+	--black: #000;
+	--white: #fff;
+	--gray-050: #fefefe;
+	--gray-100: #f0f0f0;
+	--gray-300: #e0e0e0;
+	--gray-600: #616161;
+
+	/* ---------- Brand Palette ---------- */
+	--brand-primary: #006699;
+
+	/* ---------- Shadows ---------- */
+	--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+	/* ---------- Typography ---------- */
+	--font-mono: 'Menlo', 'Monaco', 'Lucida Console', "JetBrains Mono","Consolas",monospace;
+
+	--fs-h1: clamp(1.3rem, 5vw, 2.3rem);
+	--fs-h2: clamp(1.2rem, 3vw, 1.75rem);
+	--fs-h3: clamp(1.1rem, 1.2vw, 1.5rem);
+	--fs-body: clamp(0.9rem, 1vw, 1.1rem);
+	--fs-p: clamp(0.9rem, 1vw, 1.1rem);
+	--fs-header: clamp(0.8rem, 2vw, 1rem);
+	--fs-nav-brand: clamp(1.2rem, 2vw, 1.5rem);
+
+	/* ---------- Layout ---------- */
+	--header-height: 6vh;
+	--footer-height: 6vh;
+	--content-padding-inline: 10%;
+
+	/* ---------- Gradients ---------- */
+	--gradient-body: linear-gradient(110deg, var(--white) 1.04%, var(--gray-100) 50.74%, var(--gray-300) 98.96%);
+
+	/* ---------- Semantic Tokens ---------- */
+	--text-color: var(--black);
+	--bg-color: var(--gradient-body);
+
+	--nav-hover-bg: var(--black);
+	--nav-hover-text: var(--white);
+
+	--footer-text: var(--gray-300);
+	--footer-bg: var(--black);
+}
+
+* {
+    font-family: var(--font-mono);
+}
+
+/* Global Styling */
+body {
+	color: var(--text-color);
+	background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: var(--fs-body);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Updated Header and Footer Styling */
+header, footer {
+	box-shadow: var(--shadow-md);
+	background-color: var(--bg-color);
+}
+
+header {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+/* Main Styling */
+main {
+    flex-grow: 1;
+    text-align: center;
+    margin-top: 0;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+footer{
+    padding: 0.5rem;
+    text-align: center;
+    color: var(--footer-text);
+	background-color: var(--footer-bg);
+}
+
+footer a {
+    color: inherit; /* Inherit the color from the parent element */
+    text-decoration: underline; /* Keep the underline */
+}
+
+.banner {
+	color: var(--footer-text);
+	background-color: var(--footer-bg);
+	text-align: center;
+	box-shadow: var(--shadow-md);
+    padding: 0.5rem;
+}
+
+h1 {
+    font-size: var(--fs-h1)
+}
+
+h2 {
+	font-size: var(--fs-h2);
+    margin: 0;
+}
+
+h3 {
+	font-size: var(--fs-h3);
+	/* font-weight: bold; */
+}
+
+p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+/* Update nav styling */
+nav {
+    padding-inline: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    width: auto;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background: var(--black);
+    transition: all 0.3s ease;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+nav ul li a {
+	text-decoration: none;
+	padding: 1rem 1.5rem;
+	text-wrap: nowrap;
+	display: block;
+	color: black;
+}
+
+.logo {
+    max-height: calc(clamp(0.8rem, 2vw, 1rem) + 2rem);
+}
+
+nav ul li a:not(.active):hover {
+	background-color: var(--nav-hover-bg);
+	color: var(--nav-hover-text);
+}
+
+nav ul li a.active {
+	background-color: #fff;
+}
+
+/* Section Styling */
+section {
+	display: block;
+	height: var(--section-height);
+	scroll-snap-align: start none;
+	overflow: hidden;
+}
+
+/* Form Styles */
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form-group{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+label {
+    text-align: right;
+    margin-bottom: 0;
+    /* font-weight: bold; */
+}
+
+input, button, select {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+input {
+    flex: 1;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    background-color: var(--gray-600);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    /* font-weight: bold; */
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--black);
+}
+
+/* Change the button styles for buttons that are children of HTML element with failed class */
+.failed button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.failed button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-width: 600px;
+    margin: 3vh auto;
+    background-color: white;
+    padding: clamp(1rem, 2%, 1.5rem);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note {
+    text-align: center;
+}
+
+.blue-text {
+    color: var(--brand-primary);
+}
+
+/* Updated failure state styles */
+.failed {
+    background-color: #dc3545;
+    color: white;
+}
+
+.failure-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        padding-inline: 0;
+        justify-content: flex-start;
+    }
+
+    nav ul {
+        display: none;
+        position: fixed;
+        top: 50px; /* Height of header */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #f3f3f3;
+        padding: 20px 0;
+        box-shadow: var(--box-shadow);
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    nav ul.active {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -5px);
+    }
+
+    nav {
+        padding-inline: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        width: 100%;
+        text-align: center;
+        padding-inline: 0;
+    }
+
+    .hamburger {
+        margin-left: auto;
+    }
+}
+
+/* Print styles */
+@media print {
+    header, footer {
+        display: none;
+    }
+}

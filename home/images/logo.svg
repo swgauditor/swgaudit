@@ -1,0 +1,19 @@
+<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bracket {
+      fill: #888888;
+    }
+    .content {
+      fill: #006699;
+    }
+    .text {
+      font-family: "JetBrains Mono", "Consolas", monospace;
+      font-size: 23px;
+    }
+  </style>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+    <tspan class="text bracket">&lt;</tspan>
+    <tspan class="text content">swg-audit</tspan>
+    <tspan class="text bracket">/&gt;</tspan>
+  </text>
+</svg>

@@ -1,0 +1,228 @@
+.timer {
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    font-style: italic;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: row;
+    width: 100%;
+}
+
+.upload-area {
+    width: 100%;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+    backdrop-filter: none;
+    position: relative;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.upload-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--progress, 0%);
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(255, 70, 70, 0.05) 0%,
+        rgba(255, 70, 70, 0.1) 100%);
+    transition: all 0.3s ease-in-out;
+}
+
+.upload-area.dragover {
+    border-color: #4CAF50;
+    background: #f0f7f0;
+}
+
+.upload-area.downloading {
+    border-color: #4CAF50;
+    background: #f0f7f0;
+    cursor: default;
+}
+
+.upload-area.download-ready .upload-icon {
+    fill: #fff;
+}
+
+.upload-area.download-ready .upload-text {
+    color: #fff;
+}
+
+.upload-icon {
+    width: 48px;
+    height: 48px;
+    fill: #666;
+}
+
+.upload-text {
+    color: #333;
+    text-shadow: none;
+}
+
+.upload-area.disabled {
+    pointer-events: none;
+    opacity: 0;
+    position: absolute;
+}
+
+.upload-area.completed {
+    position: relative;
+    opacity: 1;
+}
+
+.circle-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    transform: translateY(-50%);
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* button {
+    border: 1px solid rgba(255, 70, 70, 0.2);
+    background: rgba(255, 70, 70, 0.05);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: rgba(255, 70, 70, 0.1);
+    border-color: rgba(255, 70, 70, 0.3);
+} */
+
+.upload-progress {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(76, 175, 80, 0.1) 0%,
+        rgba(76, 175, 80, 0.2) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.upload-progress[style*="--progress"] {
+    --progress: 0%;
+}
+
+.upload-progress[style*="--progress"]::before {
+    transform: translateX(calc(-100% + var(--progress)));
+}
+
+.upload-progress.hidden {
+    display: none;
+}
+
+.upload-area.uploading {
+    border-color: #4CAF50;
+    background: #f0f7f0;
+    cursor: default;
+}
+
+.upload-area.uploading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(76, 175, 80, 0.1) 0%,
+        rgba(76, 175, 80, 0.2) 100%);
+    transform: translateX(calc(-100% + var(--progress, 0%)));
+    transition: transform 0.3s ease;
+}
+
+.uploading .upload-icon {
+    fill: #4CAF50;
+    z-index: 1;
+}
+
+/* Remove the upload-progress related styles as they're no longer needed */
+.upload-progress,
+.progress-container,
+.progress-bar,
+.progress-fill {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .data-theft-container {
+        padding: 10px;
+        width: auto;
+    }
+
+    .dns-queries table {
+        font-size: 10px;
+    }
+
+    .dns-queries th:first-child,
+    .dns-queries td:first-child {
+        width: 40px;
+    }
+
+    .file-url code {
+        word-break: break-all;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .progress-container {
+        width: 100%;
+    }
+
+    input[type="file"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button#uploadButton {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .results {
+        padding: 10px;
+    }
+}
