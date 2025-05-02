@@ -1,7 +1,7 @@
 <?php
-    $title = "SWG Audit";
-    $description = "Evaluate your perimeter security effectiveness against Zero-Day web threats.";
-    $keywords = "Perimeter Security, Network Security, Enterprise Web Security, Security Test, UTM, Firewall, SWG, Secure Web Gateway, Layer 7, Cybersecurity, Phishing, Malware, Data Theft, Cyber‑Slacking, DNS Tunneling, URL Filtering, Web Filtering, Threat Intelligence, Threat Detection, Threat Prevention, Zero-Day Exploit, Zero-Day Attack";
+    $title = "Test your defence against web-based Zero-Day Threats";
+    $description = "Can your perimeter security stop modern Malware, DNS Tunnelling, Phishing attacks?";
+    $keywords = "Perimeter Security, Network Security, Enterprise Web Security, Security Test, UTM, Firewall, SWG, Secure Web Gateway, Layer 7, Cybersecurity, Phishing, Malware, Data Theft, Cyber-Slacking, DNS Tunnelling, URL Filtering, Web Filtering, Threat Intelligence, Threat Detection, Threat Prevention, Zero-Day Exploit, Zero-Day Attack";
     $url = "https://swgaudit.com";
 ?>
 
