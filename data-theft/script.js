@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing event listeners');
-    const uploadArea = document.getElementById('upload-area');
-    const fileInput = document.getElementById('fileUpload');
+    const uploadArea = document.getElementById('fileUploadArea');
+    const fileInput = document.getElementById('fileInput');
     const resetButton = document.getElementById("reset-button");
-    const Card = document.querySelector('.container');
     const failureContainer = document.getElementById("failure-container");
-    const dataTheftForm = document.getElementById('data-theft-form');
+    const dataTheftForm = document.getElementById('upload-area');
 
     const handleFiles = files => files.length && handleFileUpload(files[0]);
 
@@ -25,9 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     fileInput.addEventListener('change', e => handleFiles(e.target.files));
 
     resetButton.addEventListener("click", () => {
-        failureContainer.classList.add("hidden");
-        Card.classList.remove("failed");
-        dataTheftForm.classList.remove("hidden");
+        // failureContainer.classList.add("hidden");
+        // Card.classList.remove("failed");
+        // dataTheftForm.classList.remove("hidden");
+        dataTheftForm.hidden = false;
+        failureContainer.hidden = true;
+
 
         // Reset file upload
         fileInput.value = '';
@@ -190,15 +192,20 @@ async function handleFileUpload(file) {
             
             if (data.success && data.fileUrl) {
                 console.log('File upload successful, updating UI with URL:', data.fileUrl);
-                const Card = document.querySelector('.container');
+                const Card = document.getElementById('upload-area');
                 const failureContainer = document.getElementById("failure-container");
-                const malwareForm = document.getElementById('data-theft-form');
+                const malwareForm = document.getElementById('upload-area');
                 const copyBtn = document.getElementById('copy-button');
                 const downloadButton = document.getElementById("download-button");
 
-                failureContainer.classList.remove("hidden");
-                Card.classList.add("failed");
-                malwareForm.classList.add("hidden");
+                // Unhide failure container
+                failureContainer.hidden = false;
+
+                // Hide upload-content div
+                const uploadContent = document.querySelector('.upload-area');
+                if (uploadContent) {
+                    uploadContent.hidden = true;
+                }
 
                 // Update download button with file URL
                 downloadButton.onclick = (e) => {

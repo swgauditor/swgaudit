@@ -1,0 +1,172 @@
+/* ================================================== */
+/* Threat Cards CSS (Revised Expert Refactoring)      */
+/* - Solves overflow, improves visual layout, & is DRY - */
+/* ================================================== */
+
+/* --- Layout Containers --- */
+.threats-section {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem; /* 56px */
+  align-items: center;
+}
+
+.cards-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Intrinsic Grid */
+  /* gap: 1.5rem; */
+  padding: 1rem;
+  justify-items: center;
+}
+
+/* --- The Threat Card --- */
+.threat-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 28.125rem; /* 450px */
+  cursor: pointer;
+  overflow: hidden;
+  background: rgba(251, 188, 102, 0.2);
+  border-radius: 0.625rem; /* 10px */
+  
+  /* Desktop-first borders for the layered look */
+  border: 4px solid transparent;
+  border-top-color: #ffe7c7;
+  border-bottom-color: #ffe7c7;
+
+  box-shadow: 0px 4px 4px 0px #ffe4bc inset;
+  aspect-ratio: 400/500; /* Taller aspect ratio for desktop */
+
+  transition: transform 0.2s cubic-bezier(.4,2,.6,1), 
+              box-shadow 0.2s,
+              border-color 0.2s;
+}
+
+/* --- Card Content & Text --- */
+.card-content {
+  padding: 1.5rem 1.5rem 0 1.5rem; /* Padding for content */
+  position: relative;
+  z-index: 1;
+}
+
+.card-title {
+  color: #111111;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s ease-in-out;
+  /* FLUID TYPOGRAPHY: Scales smoothly and safely */
+  font-size: clamp(1.3rem, 1rem + 1.2vw, 1.75rem);
+  letter-spacing: -0.03em;
+}
+
+.card-description {
+  color: #845e25;
+  font-family: "Inter", sans-serif;
+  line-height: 1.4;
+  transition: color 0.2s ease-in-out;
+  /* FLUID TYPOGRAPHY */
+  font-size: clamp(0.9rem, 0.8rem + 0.5vw, 1.1rem);
+  letter-spacing: -0.03em;
+  max-width: 35ch; /* Limit line length for readability */
+}
+
+/* --- The Image --- */
+.threat-card img {
+  position: absolute;
+  right: -3.75rem; /* -60px */
+  bottom: -5rem; /* -80px */
+  width: auto;
+  height: 20vw; /* Scales with viewport, but constrained by max-height */
+  max-height: 18.75rem; /* 300px */
+  min-height: 12.5rem; /* 200px, prevents it getting too small */
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.2s;
+}
+
+/* --- Hover Effects --- */
+.threat-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+  border-left-color: #ffe7c7;
+  border-right-color: #ffe7c7;
+  z-index: 2;
+}
+.threat-card:hover .card-title {
+  color: #88392b;
+}
+.threat-card:hover .card-description {
+  color: #6b4423;
+}
+.threat-card:hover img {
+  transform: scale(1.4); /* Only scale the image, no rotation */
+}
+
+/* ======================================================= */
+/* Mobile-Specific Overrides (for smaller card appearance) */
+/* ======================================================= */
+
+@media (max-width: 48em) { /* 768px */
+  .cards-grid {
+    gap: 1rem;
+  }
+
+  .threat-card {
+    /* Change to a shorter aspect ratio for mobile */
+    aspect-ratio: 400/350;
+
+    /* The KEY FIX: Add bottom padding to create a "safe zone" for the image.
+       This prevents the text from ever flowing over the image. */
+    padding-bottom: 8rem;
+
+    /* Mobile uses a simpler shadow and flat border */
+    box-shadow: 0 4px 12px rgba(122, 58, 36, 0.08);
+    border-color: #ffe7c7;
+  }
+  
+  .card-content {
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  /* Adjust image position for the shorter mobile card */
+  .threat-card img {
+    right: -2.5rem; /* -40px */
+    bottom: -1.5rem; /* -24px */
+    height: 35vw;
+    max-height: 10.5rem; /* 168px */
+    min-height: 7.5rem; /* 120px */
+  }
+
+  /* Tone down hover effects on mobile where there is no "hover" */
+  .threat-card:hover {
+    transform: translateY(-5px); /* A more subtle lift effect */
+    box-shadow: 0 8px 20px rgba(122, 58, 36, 0.15);
+  }
+  .threat-card:hover img {
+    transform: none; /* Disable image hover on mobile */
+  }
+}
+
+/* --- General Link Style --- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Print Styles --- */
+@media print {
+  .threat-card {
+    box-shadow: none;
+    border: 2px solid #ccc;
+  }
+  .threat-card:hover {
+    transform: none;
+  }
+}

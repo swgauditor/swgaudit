@@ -1,66 +1,152 @@
 <?php
-    $title = "Cyber‑Slacking Test - SWG Audit";
-    $description = "Evaluate your Secure Web Gateway's ability to enforce acceptable use policies and block non-work-related content.";
-    $keywords = "SWG, Cyber‑Slacking Test, Content Filtering, Secure Web Gateway, Cybersecurity";
-    $url = "https://cyberslacking.swgaudit.com";
+$page = 'cyberslacking'; // Set active page for navigation
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    
-    <title><?php echo $title ?></title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phishing Security Audit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/components/styles.css" />
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="preload" href="/assets/fonts/albertSans.ttf" as="font" crossorigin>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo $description ?>" >
-    <meta name="keywords" content="<?php echo $keywords ?>" >
-    <meta name="author" content="SWG Audit">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <?php include '../components/header.php'; ?>
 
-    <meta property="og:title" content="<?php echo $title ?>" >
-    <meta property="og:description" content="<?php echo $description ?>" >
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="<?php echo $url ?>" >
-    <meta property="og:image" content="<?php echo $url ?>/opengraph.png" >
-    
-    <link rel="icon" href="https://swgaudit.com/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://swgaudit.com/images/apple-touch-icon.png">
-    
-    <link rel="stylesheet" href="https://swgaudit.com/globals.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <?php include '../snippets/header.php' ?>
     <main>
-    <h1>Can Your <span class="blue-text">SWG</span> curb Cyber‑Slacking on Web 2.0 Apps?</h1>
-    <p class="note">
-        Inadequate Web 2.0 controls can undermine workplace productivity.<br>
-        While teams rely on YouTube for learning, unrestricted access can lead to major distractions.
-    </p>
-    <div class="container">
-        <form id="cyberslacking-form">
-            <h2>Video Content Category Simulation</h2>
-            <select id="category-select" class="category-select">
-                <!-- Options will be generated here -->
-            </select>
-            <div class="video-container">
-                <iframe id="youtube-frame" 
-                        width="720" 
-                        height="400" 
-                        src=""
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
-            </div>
-        </form>
-    </div>
-    <h3>Your SWG must be able to limit YouTube to work-related content, and prevent unproductive engagement</h3>
+      <div class="container">
+        <!-- Top section with Hero and Video -->
+        <section class="top-section">
+          <!-- Hero Content -->
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Can Your Security Limit
+              <span class="text-red">Non&#8209;Productive Web 2.0 Usage?</span>
+            </h1>
+            <p class="hero-description">
+              While platforms like YouTube and social media serve legitimate
+              educational and communication purposes, unrestricted access often
+              leads to cyberslacking—unauthorised use of work hours for
+              non-productive engagement. Most SWGs lack granular content
+              controls, allowing video and media platforms while failing to
+              distinguish between work-related and distracting content. This
+              opens the door to productivity loss and bandwidth abuse.
+            </p>
+          </div>
 
+          <!-- Video Section -->
+           <div class="video-section">
+            <!-- This container will now be responsible for the video's aspect ratio -->
+            <div class="video-placeholder">
+              <iframe
+                src="https://www.youtube.com/embed/Wq-Qyx-btQU"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="video-content">
+              <h3 class="video-title">Website Categorization</h3>
+              <p class="video-description">
+                This video will assist you in "how the website is categorized".
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Simulation Section -->
+        <section>
+          <div class="simulation-wrapper">
+            <div class="simulation-inner">
+              <div class="simulation-header">
+                <h2 class="simulation-title">
+                  Video Content Category Simulation
+                </h2>
+              </div>
+
+              <div class="simulation-content">
+                <!-- Instructions Panel -->
+                <div class="instructions-panel">
+                  <h3 class="instruction-title">Simulation Instructions</h3>
+                  <p class="instruction-text">
+                    Before testing, ensure your application control and content
+                    filtering policies are applied to swgaudit.com, including
+                    controls for category-based media access. This simulation
+                    requests YouTube content from specific categories to test
+                    your SWG's ability to enforce video-level restrictions.
+                  </p>
+                  <p class="warning-text">
+                    If non-productive content is allowed, your perimeter
+                    security has failed.
+                  </p>
+                  <p class="success-text">
+                    If access is blocked or redirected, your perimeter security
+                    has passed.
+                  </p>
+                </div>
+
+                <!-- Video Panel -->
+                <div class="dropdown-panel">
+                  <div class="dropdown-content">
+                    <select id="video-category" name="video-category">
+                      <option value="entertainment">Entertainment</option>
+                      <option value="education">Education</option>
+                      <option value="film-animation">Film & Animation</option>
+                      <option value="autos-vehicles">Autos & Vehicles</option>
+                      <option value="music">Music</option>
+                      <option value="pets-animals">Pets & Animals</option>
+                      <option value="sports">Sports</option>
+                      <option value="travel-events">Travel & Events</option>
+                      <option value="gaming">Gaming</option>
+                      <option value="people-blogs">People & Blogs</option>
+                      <option value="news-politics">News & Politics</option>
+                      <option value="howto-style">Howto & Style</option>
+                      <option value="science-technology">
+                        Science & Technology
+                      </option>
+                      <option value="movies">Movies</option>
+                      <option value="action-adventure">Action/Adventure</option>
+                      <option value="drama">Drama</option>
+                      <option value="family">Family</option>
+                      <option value="foreign">Foreign</option>
+                      <option value="horror">Horror</option>
+                      <option value="thriller">Thriller</option>
+                      <option value="trailers">Trailers</option>
+                    </select>
+
+                    <!-- Video Player Container -->
+                    <div class="video-player-container">
+                      <iframe
+                        id="video-player"
+                        src="https://www.youtube.com/embed/YjlgahImVwI"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                      >
+                      </iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
-    <?php include '../snippets/footer.php' ?>
-    <script src="https://swgaudit.com/global.js"></script>
+
+    <!-- Footer -->
+    <?php include '../components/footer.php'; ?>
+
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
