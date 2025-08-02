@@ -32,7 +32,7 @@
 <body>
     <?php include '../snippets/header.php' ?>
     <main>
-        <h1>Can Your <span class="blue-text">SWG</span> prevent credential theft?</h1>
+        <h1>Can Your <span class="blue-text">Perimeter Security</span> prevent credential theft?</h1>
         <p class="note">
             When the victim clicks the phishing link, the uncategorised Zero-Hour domain is allowed by the URL filter.<br>
             The attacker harvests the submitted credentials, while the victim is redirected to a legitimate website.
@@ -52,7 +52,7 @@
                 <button type="submit" id="submit-button">Submit Credentials</button>
             </form>
             <div class="failure-container hidden" id="failure-container">
-                <h2>SWG FAILED</h2>
+                <h2>Perimeter Security FAILED</h2>
                 <p class="note">Server received your credentials</p>
                 <div class="form-group">
                     <label>Username</label>
@@ -65,7 +65,7 @@
                 <button type="button" id="reset-button">Reset Test</button>
             </div>
         </div>
-        <h3>Your SWG must be able to prevent the credential submission to the uncategorised websites</h3>
+        <h3>Your Perimeter Security must be able to prevent the credential submission to the uncategorised websites</h3>
 
     </main>
     <?php include '../snippets/footer.php' ?>

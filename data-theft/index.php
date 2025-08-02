@@ -32,7 +32,7 @@
 <body>
     <?php include '../snippets/header.php' ?>
     <main>
-    <h1>Can Your <span class="blue-text">SWG</span> stop Data Exfiltration?</h1>
+    <h1>Can Your <span class="blue-text">Perimeter Security</span> stop Data Exfiltration?</h1>
     <p class="note">
         In a typical DNS Tunneling attack, an attacker encodes sensitive data in subdomains of DNS queries.<br>
         When the DNS quersies reach the attacker's name server, stolen data is decoded and reassembled.
@@ -66,7 +66,7 @@
         </div>
         <p id="timer" class="timer">File will be deleted from the server in 10 minutes</p>
     </div>
-    <h3>Your SWG must be able to detect and limit DNS Tunneling, while ensuring a threshold for business traffic</h3>
+    <h3>Your Perimeter Security must be able to detect and limit DNS Tunneling, while ensuring a threshold for business traffic</h3>
 
     </main>
     <?php include '../snippets/footer.php' ?>

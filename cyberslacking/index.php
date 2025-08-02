@@ -32,7 +32,7 @@
 <body>
     <?php include '../snippets/header.php' ?>
     <main>
-    <h1>Can Your <span class="blue-text">SWG</span> curb Cyber‑Slacking on Web 2.0 Apps?</h1>
+    <h1>Can Your <span class="blue-text">Perimeter Security</span> curb Cyber‑Slacking on Web 2.0 Apps?</h1>
     <p class="note">
         Inadequate Web 2.0 controls can undermine workplace productivity.<br>
         While teams rely on YouTube for learning, unrestricted access can lead to major distractions.
@@ -56,7 +56,7 @@
             </div>
         </form>
     </div>
-    <h3>Your SWG must be able to limit YouTube to work-related content, and prevent unproductive engagement</h3>
+    <h3>Your Perimeter Security must be able to limit YouTube to work-related content, and prevent unproductive engagement</h3>
 
     </main>
     <?php include '../snippets/footer.php' ?>

@@ -33,7 +33,7 @@
     <?php include '../snippets/header.php' ?>
     <main class="hero">
         <div>
-            <h1>Is Your <span class="blue-text">SWG</span> Ready for Zero‑Hour Layer 7 Attacks?</h1>
+            <h1>Is Your <span class="blue-text">Perimeter Security</span> Ready for <br>Zero‑Hour Layer 7 Attacks?</h1>
             <p class="note">
                 Automated crawlers and human editors can no longer cope up with the website categorisation workload.<br>
                 With nearly 70% newly registered domains still uncategorized, URL filtering is rapidly becoming obsolete.
@@ -47,7 +47,7 @@
             <a href="https://cyberslacking.swgaudit.com/" class="simulation-link">Simulate Cyber‑Slacking</a>
         </div>
 
-        <h3>Your SWG must be able to defend against Layer 7 attacks, without blocking uncategorised websites</h3>
+        <h3>Your Perimeter Security must be able to defend against Layer 7 attacks, without blocking uncategorised websites</h3>
 
     </main>
     <?php include '../snippets/footer.php' ?>

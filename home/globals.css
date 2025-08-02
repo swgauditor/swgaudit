@@ -75,11 +75,11 @@ header {
 
 /* Main Styling */
 main {
-    flex-grow: 1;
-    text-align: center;
-    margin-top: 0;
-	padding-left: 10%;
-	padding-right: 10%;
+  flex-grow: 1;
+  text-align: center;
+  margin-top: 0;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 footer{
