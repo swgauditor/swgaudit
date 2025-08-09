@@ -143,7 +143,7 @@ try {
     ]);
 
 } catch (Exception $e) {
-    logMessage("Error: " . $e->getMessage(), isset($idLogger) ? $idLogger : null);
+    logMessage("Error: " . $e->getMessage());
     echo json_encode([
         'success' => false,
         'message' => 'Error processing data: ' . $e->getMessage()
