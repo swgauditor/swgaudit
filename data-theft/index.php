@@ -3,7 +3,6 @@ $title = "Data‑Theft Test - SWG Audit";
 $description = "Evaluate your Secure Web Gateway's ability to detect and block data exfiltration via DNS tunneling.";
 $keywords = "SWG, Data Theft Test, DNS Tunneling, Secure Web Gateway, Cybersecurity";
 $url = "https://www.swgaudit.com/cyberslacking";
-$page = 'data-theft'; // Set active page for navigation
 ?>
 
 <!DOCTYPE html>

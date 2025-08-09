@@ -3,25 +3,21 @@
     $description = "An open-source initiative to help buyers validate the real-world effectiveness of their perimeter security solutions.";
     $keywords = "cybersecurity, security audit, phishing, malware, data theft, cyberslacking";
     $url = "https://www.swgaudit.com/about";
-    $page = 'about'; // Set active page for navigation
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <title><?php echo $title ?></title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo $description ?>" >
-    <meta name="keywords" content="<?php echo $keywords ?>" >
+    <meta name="description" content="<?php echo $description ?>">
+    <meta name="keywords" content="<?php echo $keywords ?>">
     <meta name="author" content="SWG Audit">
-
-    <meta property="og:title" content="<?php echo $title ?>" >
-    <meta property="og:description" content="<?php echo $description ?>" >
+    <meta property="og:title" content="<?php echo $title ?>">
+    <meta property="og:description" content="<?php echo $description ?>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<?php echo $url ?>" >
+    <meta property="og:url" content="<?php echo $url ?>">
     
     <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
     <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
@@ -30,11 +26,10 @@
     <link rel="stylesheet" href="styles.css">
 
 </head>
-  <body>
+<body>
 
-    <!-- Navigation -->
-    <?php include '../components/header.php'; ?>
-
+	<!-- Navigation -->
+	<?php include '../components/header.php'; ?>
 
     <!-- Main Content -->
     <main class="main container" role="main">

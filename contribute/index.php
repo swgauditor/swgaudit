@@ -3,8 +3,6 @@
   $description = "An open-source initiative to help buyers validate the real-world effectiveness of their perimeter security solutions.";
   $keywords = "cybersecurity, security audit, phishing, malware, data theft, cyberslacking";
   $url = "https://www.swgaudit.com/contribute";
-  $page = 'contribute'; // Set active page for navigation
-
 ?>
 
 <!DOCTYPE html>

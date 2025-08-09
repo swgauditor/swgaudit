@@ -3,7 +3,6 @@
   $description = "Evaluate your Secure Web Gateway's ability to enforce acceptable use policies and block non-work-related content.";
   $keywords = "SWG, Cyber‑Slacking Test, Content Filtering, Secure Web Gateway, Cybersecurity";
   $url = "https://www.swgaudit.com/cyberslacking";
-  $page = 'cyberslacking'; // Set active page for navigation
 ?>
 
 <!DOCTYPE html>

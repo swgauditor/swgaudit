@@ -3,7 +3,6 @@ $title = "Phishing Test - SWG Audit";
 $description = "Simulate phishing attacks to test your Secure Web Gateway's ability to prevent credential theft.";
 $keywords = "SWG, Phishing Test, Credential Theft, Secure Web Gateway, Cybersecurity";
 $url = "https://www.swgaudit.com/phishing";
-$page = 'phishing'; // Set active page for navigation
 ?>
 
 <!DOCTYPE html>
