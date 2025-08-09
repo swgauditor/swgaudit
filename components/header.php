@@ -30,7 +30,6 @@
       </div> 
     </div>
     <div class="nav-left">
-      <a href="/contact/" class="nav-item <?php echo (isset($page) && $page == 'contact-us') ? 'active' : ''; ?>">Contact Us</a>
       <a href="/about/" class="nav-item <?php echo (isset($page) && $page == 'about') ? 'active' : ''; ?>">About Us</a>
       <a href="/contribute/" class="nav-item <?php echo (isset($page) && $page == 'contribute') ? 'active' : ''; ?>">Contribute</a>
       <a href="https://github.com/swgauditor/swgaudit" class="github-icon" target="_blank" rel="noopener">
