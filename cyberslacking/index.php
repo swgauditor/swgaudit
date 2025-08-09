@@ -41,8 +41,8 @@
           <!-- Hero Content -->
           <div class="hero-content">
             <h1 class="hero-title">
-              Can Your Perimeter Security
-              <span class="text-red">Regulate Web 2.0 Usage?</span>
+              Evaluate your Perimeter Security against
+              <span class="text-red">Web 2.0 Cyberslacking</span>
             </h1>
             <p class="hero-description">
               While platforms like YouTube and social media serve legitimate

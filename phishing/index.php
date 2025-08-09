@@ -56,8 +56,8 @@ $page = 'phishing'; // Set active page for navigation
 				<!-- Hero Content -->
 				<div class="hero-content">
 					<h1 class="hero-title">
-						Can Your Perimeter Security
-						<span class="text-red">Stop Credential Theft?</span>
+						Evaluate your Perimeter Security against 
+						<span class="text-red">Credential Theft</span>
 					</h1>
 					<p class="hero-description">
 						Modern phishing campaigns exploit URL reputation evasion and reverse proxy techniques to steal credentials and session cookies—even with MFA in place. Attackers register lookalike domains, allow them to be passively categorised as safe, and then deploy a phishing kit during the critical zero&#8209;hour window. The phishing link can, then, be distributed via email, social media, or even poisoned search results. With over 80% of victims clicking within the first hour, the attack is typically complete long before blacklists or filters can update.

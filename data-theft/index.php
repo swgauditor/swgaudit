@@ -44,8 +44,8 @@ $page = 'data-theft'; // Set active page for navigation
 			<!-- Hero Content -->
 			<div class="hero-content">
 				<h1 class="hero-title">
-					Can Your Perimeter Security
-					<span class="text-red">Prevent Data Exfiltration?</span>
+					Evaluate your Perimeter Security against 
+					<span class="text-red">Data Exfiltration</span>
 				</h1>
 				<p class="hero-description">
 					A typical insider data breach might go like this: the attacker registers a new, unused domain, sets up a
