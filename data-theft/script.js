@@ -1,12 +1,49 @@
+const uploadArea = document.getElementById('upload-area');
+const fileInput = document.getElementById('fileInput');
+let selectedFile = null;
+const fileDetails = document.getElementById('file-details');
+const fileName = document.getElementById('selected-filename');
+const fileSize = document.getElementById('selected-filesize');
+const uploadButton = document.getElementById('uploadButton');
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing event listeners');
-    const uploadArea = document.getElementById('fileUploadArea');
-    const fileInput = document.getElementById('fileInput');
-    const resetButton = document.getElementById("reset-button");
-    const failureContainer = document.getElementById("failure-container");
-    const dataTheftForm = document.getElementById('upload-area');
 
-    const handleFiles = files => files.length && handleFileUpload(files[0]);
+    // Initialize remove button handler
+    const removeFileBtn = document.querySelector('.remove-file');
+    if (removeFileBtn) {
+        removeFileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedFile = null;
+            uploadButton.disabled = true;
+            
+            // Show upload area and hide file details
+            uploadArea.hidden = false;
+            document.getElementById('file-details').hidden = true;
+        });
+    }
+
+    const handleFileSelection = files => {
+        if (files.length) {
+            selectedFile = files[0];
+            if (selectedFile.size > 100 * 1024) {
+                alert("File size must be less than 100KB.");
+                selectedFile = null;
+                uploadButton.disabled = true;
+                return;
+            }
+            
+            // Update file details
+            fileName.textContent = selectedFile.name;
+            fileSize.textContent = formatBytes(selectedFile.size);
+            
+            // Hide upload area and show file details
+            uploadArea.hidden = true;
+            fileDetails.hidden = false;
+            
+            uploadButton.disabled = false;
+        }
+    };
 
     uploadArea.addEventListener('click', () => fileInput.click());
     uploadArea.addEventListener('dragover', e => {
@@ -18,36 +55,31 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         uploadArea.classList.remove('dragover');
         fileInput.files = e.dataTransfer.files;
-        handleFiles(e.dataTransfer.files);
+        handleFileSelection(e.dataTransfer.files);
     });
 
-    fileInput.addEventListener('change', e => handleFiles(e.target.files));
-
-    resetButton.addEventListener("click", () => {
-        // failureContainer.classList.add("hidden");
-        // Card.classList.remove("failed");
-        // dataTheftForm.classList.remove("hidden");
-        dataTheftForm.hidden = false;
-        failureContainer.hidden = true;
-
-
-        // Reset file upload
-        fileInput.value = '';
-        uploadArea.style.pointerEvents = 'auto';
-        uploadArea.classList.remove('uploading');
-        uploadArea.style.setProperty('--progress', '0%');
-        const uploadText = uploadArea.querySelector('.upload-text');
-        const constraints = uploadArea.querySelector('.constraints');
-        uploadText.textContent = 'Drag and drop or click to upload a file';
-        constraints.textContent = 'Maximum file size: 100KB';
-
-        // Reset timer
-        if (countdownInterval) {
-            clearInterval(countdownInterval);
+    fileInput.addEventListener('change', e => handleFileSelection(e.target.files));
+    
+    uploadButton.addEventListener('click', () => {
+        if (selectedFile) {
+            handleFileUpload(selectedFile);
         }
-        const timerElement = document.getElementById('timer');
-        timerElement.textContent = 'File will be deleted from the server in 10 minutes';
     });
+
+    resetBtn.addEventListener('click', function() {
+        // Reset form values and selected file
+        form.reset();
+        selectedFile = null;
+        form.hidden = false; // Show form
+        resetContainer.hidden = true; // Hide results panel
+        uploadButton.disabled = true;
+        const uploadText = uploadArea.querySelector('.upload-text');
+        uploadText.textContent = 'Drag and drop or click to select a file';
+        
+        // Clear URL parameters
+        window.history.replaceState({}, document.title, window.location.pathname);
+    });
+
 });
 
 function generateRandomId() {
@@ -103,7 +135,6 @@ async function handleFileUpload(file) {
         return;
     }
 
-    const uploadArea = document.getElementById('upload-area');
     const uploadText = uploadArea.querySelector('.upload-text');
     const constraints = uploadArea.querySelector('.constraints');
     

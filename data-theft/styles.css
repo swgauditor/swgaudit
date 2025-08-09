@@ -3,36 +3,83 @@
 /* - Mobile-First and Intrinsically Responsive - */
 /* ======================================= */
 
+/* File details styles */
+.file-details:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.375rem;
+  margin-top: 0.5rem;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.file-name {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.file-size {
+  color: #bebebe;
+  font-size: 0.75rem;
+}
+
+.remove-file {
+  background: none;
+  border: none;
+  color: #ff9c9c;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  transition: background-color 0.2s;
+}
+
+.remove-file:hover {
+  background-color: rgba(255, 156, 156, 0.1);
+}
+
 /* Upload Panel container */
 .upload-panel {
   display: flex;
   width: 100%;
   max-width: 31.9375rem; /* 511px */
-  height: auto; /* Let content define height */
-  min-height: 21.75rem; /* 348px, prevents collapsing */
-  padding: 1.25rem 0.9375rem; /* Mobile padding: 20px 15px */
+  height: auto;
+  min-height: 21.75rem;
+  padding: 1.25rem 0.9375rem;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem; /* Mobile gap */
-
-  border-radius: 0.375rem; /* 6px */
+  gap: 1.5rem;
+  border-radius: 0.375rem;
   border: 1px solid rgba(98, 96, 91, 0.25);
   background: #2A2A28;
 }
 
 /* Drop area for files */
-.file-upload-area {
+.upload-area:not([hidden]) {
   display: flex;
-  min-height: 12.5rem; /* Mobile min-height: 200px */
-  min-width: 7.5rem; /* 120px */
-  padding: 1.25rem; /* Mobile padding: 20px */
+  min-height: 12.5rem;
+  min-width: 7.5rem;
+  padding: 1.25rem;
+  margin: 1rem 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.375rem; /* 6px */
+  gap: 0.375rem;
   align-self: stretch;
-
-  border-radius: 0.5rem; /* 8px */
+  border-radius: 0.5rem;
   border: 3px dashed #FFE4BC;
   background: #000;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25);
@@ -46,32 +93,16 @@
   background: #111;
 }
 
-/* Content inside upload area */
-.upload-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem; /* 8px */
-}
-
-/* Icon in upload area */
-.upload-icon {
-  width: 1.875rem; /* 30px */
-  height: 1.875rem; /* 30px */
-}
-
 /* Main text prompt */
 .upload-text {
   color: #fff;
   text-align: center;
   font-weight: 400;
   letter-spacing: 0.04em;
-  /* FLUID TYPOGRAPHY: Scales from 16px to 18px */
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
 }
 
 /* Sub-instructional or info text */
-.upload-info,
 .constraints {
   color: #BEBEBE;
   text-align: center;
@@ -92,8 +123,7 @@
 }
 
 /* Common container for button groups */
-.button-container,
-.reset-container {
+.button-container {
   display: flex;
   width: 100%; /* Changed from fixed width to be responsive */
   align-items: center;
@@ -102,8 +132,7 @@
 
 /* Shared button styles */
 .download-button,
-.copy-button,
-.reset-button {
+.copy-button {
   display: flex;
   height: 3.9375rem; /* 63px */
   min-width: 7.5rem; /* 120px */
@@ -128,14 +157,6 @@
   font-size: 0.9375rem; /* 15px */
   letter-spacing: 0.048em; /* 0.72px / 15px */
 }
-
-.reset-button {
-  border: 1px solid #C9C9C9;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
-  font-size: 1.125rem; /* 18px */
-  letter-spacing: 0.04em; /* 0.72px / 18px */
-}
-
 /* =========================================== */
 /* Responsive Queries (Simplified Mobile-First) */
 /* =========================================== */

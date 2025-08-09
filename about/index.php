@@ -1,46 +1,35 @@
 <?php
-$page = 'about'; // Set active page for navigation
+    $title = "About - SWG Audit";
+    $description = "An open-source initiative to help buyers validate the real-world effectiveness of their perimeter security solutions.";
+    $keywords = "cybersecurity, security audit, phishing, malware, data theft, cyberslacking";
+    $url = "https://www.swgaudit.com/about";
+    $page = 'about'; // Set active page for navigation
 ?>
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="SWG Audit - An open-source initiative to help buyers validate the real-world effectiveness of their perimeter security solutions."
-    />
-    <meta
-      name="keywords"
-      content="cybersecurity, security audit, phishing, malware, data theft, cyberslacking"
-    />
-    <meta name="author" content="SWG Audit Team" />
+<head>
+    <meta charset="UTF-8">
+    
+    <title><?php echo $title ?></title>
 
-    <title>SWG Audit - Cybersecurity Testing Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?php echo $description ?>" >
+    <meta name="keywords" content="<?php echo $keywords ?>" >
+    <meta name="author" content="SWG Audit">
 
-    <!-- Preload critical fonts -->
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&display=swap"
-      as="style"
-    />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap"
-      as="style"
-    />
+    <meta property="og:title" content="<?php echo $title ?>" >
+    <meta property="og:description" content="<?php echo $description ?>" >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo $url ?>" >
+    
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="styles.css">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="../components/styles.css" />
-
-    <!-- Favicon (you can add your own) -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>"
-    />
-  </head>
+</head>
   <body>
 
     <!-- Navigation -->
@@ -49,24 +38,17 @@ $page = 'about'; // Set active page for navigation
 
     <!-- Main Content -->
     <main class="main container" role="main">
-      <!-- Hero Section -->
-      <section class="hero" aria-labelledby="hero-title">
-        <h1 id="hero-title" class="hero-title">
-          SWG Audit is an open-source initiative to help buyers validate the
-          real-world effectiveness of their perimeter security solutions.
-        </h1>
-        <p class="hero-subtitle">
+
+      <!-- Problems Section -->
+      <section class="intro-section">
+        <p>
           In today's cybersecurity landscape, attackers have significantly
           outpaced traditional security tools.
         </p>
       </section>
 
-      <!-- Problems Section -->
       <section class="warning-section" aria-labelledby="problems-heading">
-        <h2 id="problems-heading" class="sr-only">
-          Current Security Challenges
-        </h2>
-
+        
         <!-- Problem 1 -->
         <div class="warning-item">
           <div class="warning-content">
@@ -155,18 +137,12 @@ $page = 'about'; // Set active page for navigation
         </div>
       </section>
 
-      <!-- Solution Section -->
-      <section aria-labelledby="solution-heading">
-        <div class="section-heading">
-          <h2 id="solution-heading">SWG Audit was created to change that.</h2>
-        </div>
-
-        <div class="description">
-          <p>
-            We provide a safe, controlled, and transparent platform to simulate
-            real-world, Layer 7 web-based attacks.
-          </p>
-        </div>
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 class="hero-title">SWG Audit was created to change that.</h1>
+        <p class="hero-subtitle">
+          We are an open-source initiative to help buyers validate the
+          real-world effectiveness of their perimeter security solutions against web-based threats.
+        </p>
       </section>
 
       <!-- Feature Section -->

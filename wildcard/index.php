@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/assets/css/global.css" />
     <link rel="stylesheet" href="/assets/css/cards.css" />
     <link rel="preload" href="/assets/fonts/albertSans.ttf" as="font" crossorigin>
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+
 
 </head>
 

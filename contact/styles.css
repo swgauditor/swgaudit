@@ -1,78 +1,4 @@
 /* ======================== */
-/* Navigation Header Styles */
-/* ======================== */
-
-.nav-header {
-  border-bottom: 1px solid #e2e2e2;
-  padding: 10px 31px;
-}
-
-.nav-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-left {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 365px;
-}
-
-.github-icon {
-  display: flex;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-}
-
-.nav-items-left {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.nav-center {
-  display: flex;
-  align-items: center;
-  gap: 72px;
-}
-
-.nav-items-center {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.nav-link {
-  font-family: "Albert Sans", -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #000000;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-  color: #88392b;
-}
-
-.nav-link-active {
-  color: #88392b !important;
-}
-
-.logo {
-  font-family: "Albert Sans", -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: #000000;
-  width: 120px;
-}
-
-/* ======================== */
 /* Hero Section             */
 /* ======================== */
 
@@ -117,28 +43,27 @@
   gap: 5px;
 }
 
-.form-group-name {
-  width: 196px;
-}
 
-.form-group-email {
-  width: 367px;
+.form-group-name,
+.form-group-org {
+  width: 48%;
 }
 
 /* ======================== */
 /* Form Labels              */
 /* ======================== */
 
+
 .form-label {
-  font-family: "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 22px;
   font-weight: 400;
-  color: #000000;
+  color: var(--brand-red);
 }
 
 /* ======================== */
 /* Form Inputs              */
 /* ======================== */
+
 
 .form-input {
   width: 100%;
@@ -147,16 +72,15 @@
   border-radius: 12px;
   border: none;
   background-color: #f5f5f5;
-  font-family: "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 400;
-  letter-spacing: -1.6px;
-  color: #949494;
   outline: none;
 }
 
-.form-input::placeholder {
-  color: #949494;
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #b0b0b0;
+  font-style: italic;
 }
 
 .form-input:focus {
@@ -164,110 +88,6 @@
   box-shadow: none;
 }
 
-/* ======================== */
-/* Phone Row                */
-/* ======================== */
-
-.phone-row {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-/* ======================== */
-/* Country Selector         */
-/* ======================== */
-
-.country-selector {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 196px;
-  height: 58px;
-  padding: 10px 24px;
-  border-radius: 12px;
-  background-color: #f5f5f5;
-  border: none;
-}
-
-.flag-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Indian Flag */
-
-.indian-flag {
-  width: 38px;
-  height: 27px;
-  position: relative;
-  border-radius: 2px;
-  overflow: hidden;
-  border: 0.5px solid #f5f5f5;
-}
-
-.flag-stripe {
-  width: 100%;
-  height: 9px;
-}
-
-.flag-orange {
-  background-color: #ffa44a;
-}
-
-.flag-white {
-  background-color: #ffffff;
-}
-
-.flag-green {
-  background-color: #1a9f0b;
-}
-
-.flag-chakra {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  border: 0.667px solid #181a93;
-  background-color: rgba(24, 26, 147, 0.15);
-}
-
-.chakra-inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  background-color: #181a93;
-}
-
-.country-code {
-  font-family: "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: -0.6px;
-  color: #949494;
-}
-
-.dropdown-icon {
-  width: 18px;
-  height: 18px;
-}
-
-/* ======================== */
-/* Phone Input              */
-/* ======================== */
-
-.phone-input {
-  flex: 1;
-  letter-spacing: normal;
-}
 
 /* ======================== */
 /* Textarea                 */
@@ -280,17 +100,9 @@
   border-radius: 12px;
   border: none;
   background-color: #f5f5f5;
-  font-family: "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 400;
-  letter-spacing: -0.6px;
-  color: #949494;
-  resize: none;
   outline: none;
-}
-
-.form-textarea::placeholder {
-  color: #949494;
 }
 
 .form-textarea:focus {
@@ -311,7 +123,6 @@
   height: 58px;
   background-color: #88392b;
   color: #ffffff;
-  font-family: "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.4px;
@@ -331,6 +142,9 @@
   box-shadow: none;
 }
 
+
+/* Removed intl-tel-input styles as phone field is removed */
+
 /* ======================== */
 /* Responsive Design        */
 /* (Mobile First Approach)  */
@@ -338,10 +152,6 @@
 
 /* --- Extra Small Devices --- */
 @media (max-width: 480px) {
-  .nav-items-left,
-  .nav-items-center {
-    gap: 16px;
-  }
 
   .hero-section {
     margin-top: 40px;
@@ -364,35 +174,15 @@
 
 /* --- Small Devices / Tablets --- */
 @media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 20px;
-    padding: 0 16px;
-  }
-
-  .nav-left {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .nav-center {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .nav-items-center {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
 
   .form-row {
     flex-direction: column;
     gap: 26px;
   }
 
+
   .form-group-name,
-  .form-group-email {
+  .form-group-org {
     width: 100%;
   }
 

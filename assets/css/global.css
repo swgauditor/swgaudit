@@ -10,37 +10,309 @@
 /* ===================== */
 /* Root & Body Setup     */
 /* ===================== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Albert Sans", -apple-system, Roboto, Helvetica, sans-serif;
+}
 
 :root {
-  font-size: 16px;
-  scroll-behavior: smooth;
+	font-size: 16px;
+	scroll-behavior: smooth;
+	--brand-red: #88392b;
+	--text-gray: #424242;
+
+
+	--container-max-width: 1440px;
+
+	/* Spacing scale */
+	--space-xs: 4px;
+	--space-sm: 8px;
+	--space-md: 16px;
+	--space-lg: 24px;
+	--space-xl: 32px;
+	--space-2xl: 48px;
+	--space-3xl: 64px;
+	--space-4xl: 80px;
 }
 
 body {
-  /* GOOD USE of vh: Ensure the body is at least as tall as the viewport. */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  color: #09090b;
-  font-family: -apple-system, Roboto, Helvetica, sans-serif;
+	/* GOOD USE of vh: Ensure the body is at least as tall as the viewport. */
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	color: #09090b;
 }
 
 main {
-  flex: 1 0 auto;
+	flex: 1 0 auto;
+}
+
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	background: #fff;
+	display: flex;
+	height: 3.5rem;
+	/* 56px default height for mobile */
+	padding: 0 1rem;
+	/* Default mobile padding */
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid #e2e2e2;
+	/* px is good for borders */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+	/* px is good for shadows */
+}
+
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 86.125rem;
+	/* 1378px */
+}
+
+.logo {
+	color: #000;
+	font-size: 1rem;
+	/* 16px default mobile size */
+	font-weight: 400;
+	line-height: normal;
+	text-decoration: none;
+}
+
+/* Hide desktop navigation by default */
+.nav-left,
+.nav-center,
+.nav-menu {
+	display: none;
+}
+
+.github-icon {
+	display: flex;
+	/* Kept for desktop view */
+	width: 1.5rem;
+	/* 24px */
+	height: 1.5rem;
+	/* 24px */
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.github-icon:hover {
+	background-color: #f5f5f5;
+	border-radius: 0.25rem;
+	/* 4px */
+}
+
+.nav-item {
+	font-size: 1rem;
+	/* 16px */
+	font-weight: 400;
+	line-height: normal;
+	color: #000;
+	cursor: pointer;
+	transition: color 0.2s ease, background-color 0.2s ease;
+	padding: 0.5rem 0.9375rem;
+	/* 8px 15px */
+	white-space: nowrap;
+	text-decoration: none;
+	border-radius: 0.25rem;
+	/* 4px */
+}
+
+.nav-item:hover {
+	background-color: #f5f5f5;
+}
+
+.nav-item.active {
+	color: var(--brand-red);
+}
+
+/* =============================== */
+/* Hamburger and Mobile Nav       */
+/* =============================== */
+.hamburger {
+	display: flex;
+	/* Hamburger is visible by default on mobile */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 2.5rem;
+	/* 40px */
+	height: 2.5rem;
+	/* 40px */
+	cursor: pointer;
+	background: none;
+	border: none;
+	z-index: 1100;
+}
+
+.hamburger span {
+	display: block;
+	width: 1.75rem;
+	/* 28px */
+	height: 3px;
+	/* px is fine for thin decorative lines */
+	margin: 0.25rem 0;
+	/* 4px */
+	background: var(--brand-red);
+	border-radius: 2px;
+	transition: all 0.3s;
+}
+
+.mobile-nav {
+	display: none;
+	/* Hidden by default, shown with JS */
+	position: fixed;
+	top: 3.5rem;
+	/* Matches header height (56px) */
+	right: 0;
+	width: 80vw;
+	max-width: 20rem;
+	/* 320px */
+	height: calc(100vh - 3.5rem);
+	/* Full height minus header */
+	background: #fff;
+	box-shadow: -2px 0 16px rgba(0, 0, 0, 0.08);
+	z-index: 1050;
+	flex-direction: column;
+	padding: 2rem 1.5rem;
+	gap: 1.5rem;
+	animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateX(100%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+.mobile-nav.open {
+	display: flex;
+}
+
+/* =============================== */
+/* Footer                         */
+/* =============================== */
+.footer {
+	position: sticky;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	/* More robust than 100vw */
+	min-height: 3rem;
+	/* 48px */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background: #fff;
+	border-top: 1px solid #e2e2e2;
+	z-index: 1000;
+	padding: 0.375rem 0.5rem;
+	/* 6px 8px */
+}
+
+.footer-text {
+	font-family: "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+	font-size: 0.75rem;
+	/* 12px mobile size */
+	font-weight: 400;
+	letter-spacing: -0.012em;
+	/* -0.19px / 15px */
+	color: var(--text-gray);
+	line-height: 1.4;
+}
+
+.link {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* ======================================= */
+/* Media Queries: From Tablet Upwards      */
+/* ======================================= */
+
+/* ========== Tablets (min-width: 768px) ========== */
+@media (min-width: 48em) {
+	.footer-text {
+		font-size: 0.9375rem;
+		/* 15px */
+	}
+
+	.footer {
+		min-height: 3.375rem;
+		/* 54px */
+		padding: 0.625rem 1.9375rem;
+		/* 10px 31px */
+	}
+}
+
+/* ========== Desktop (min-width: 1200px) ========== */
+/* This is the breakpoint where the full navigation appears. */
+@media (min-width: 75em) {
+	.header {
+		height: 4rem;
+		/* 64px on desktop */
+		padding: 0.625rem 1.9375rem;
+		/* 10px 31px */
+	}
+
+	/* Hide the hamburger on desktop */
+	.hamburger {
+		display: none;
+	}
+
+	/* Show the desktop navigation elements */
+	.nav-left {
+		display: flex;
+		justify-content: flex-start;
+		/* Use gap for spacing instead of fixed width */
+		gap: 2rem;
+	}
+
+	.nav-center {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 4.5rem;
+		/* 72px */
+	}
+
+	.nav-menu {
+		display: flex;
+		align-items: center;
+		gap: 1.875rem;
+		/* 30px */
+	}
+
+	.logo {
+		font-size: 1.125rem;
+		/* 18px */
+	}
 }
 
 /* ===================== */
 /* Layout & Containers   */
 /* ===================== */
 
-.container {
-  /* BEST PRACTICE: Use % and max-width (in rem) for main containers.
+main {
+	/* BEST PRACTICE: Use % and max-width (in rem) for main containers.
      This is better than `width: 90vw` because it prevents content from
      becoming excessively wide on very large screens. */
-  width: 100%;
-  max-width: 90rem;
-  margin: 0 auto;
-  padding: 0 2rem;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 2rem;
 }
 
 /* ===================== */
@@ -48,45 +320,45 @@ main {
 /* ===================== */
 
 .top-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 4rem 0;
-  gap: 2rem;
-  flex-wrap: wrap;
-  /* Allows sections to stack automatically */
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 4rem 0;
+	gap: 2rem;
+	flex-wrap: wrap;
+	/* Allows sections to stack automatically */
 }
 
 .hero-content {
-  flex: 999 1 40ch;
-  /* Intrinsic sizing is more robust than a fixed vw width */
+	flex: 999 1 40ch;
+	/* Intrinsic sizing is more robust than a fixed vw width */
 }
 
 /* Main hero title styling */
 .hero-title {
-  font-family: "Instrument Sans", -apple-system, Roboto, Helvetica, sans-serif;
-  /* PERFECT USE of vw: Inside clamp() for fluid typography.
+	font-family: "Instrument Sans", -apple-system, Roboto, Helvetica, sans-serif;
+	/* PERFECT USE of vw: Inside clamp() for fluid typography.
      The font size scales with the viewport, but is safely constrained
      by a min (2rem) and max (3.75rem) value. */
-  font-size: clamp(2rem, 1.5rem + 3vw, 3.75rem);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  color: #09090b;
-  margin-bottom: 2rem;
+	font-size: clamp(2rem, 1.5rem + 3vw, 3.75rem);
+	font-weight: 400;
+	line-height: 1.1;
+	letter-spacing: -0.04em;
+	color: #09090b;
+	margin-bottom: 2rem;
 }
 
 .text-red {
-  color: #88392b;
+	color: #88392b;
 }
 
 .hero-description {
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: -0.03em;
-  color: #000000;
-  /* Another great use of clamp() for fluid text */
-  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+	font-weight: 400;
+	line-height: 1.4;
+	letter-spacing: -0.03em;
+	color: #000000;
+	/* Another great use of clamp() for fluid text */
+	font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
 }
 
 /* ===================== */
@@ -94,168 +366,305 @@ main {
 /* ===================== */
 
 .video-section {
-  /* Let flexbox handle the width. Setting a `width` in vw would be too rigid. */
-  flex: 1 1 25rem;
-  max-width: 100%;
-  background-color: #fef2e0;
-  border-top: 2px solid #ffe3b8;
-  padding: 0.625rem 0.8125rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+	/* Let flexbox handle the width. Setting a `width` in vw would be too rigid. */
+	flex: 1 1 25rem;
+	max-width: 100%;
+	padding: 0.625rem 0.8125rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 }
 
 /* We use the padding-top trick for aspect ratio, which is better than vh/vw.
    It ensures the video is always the right shape, regardless of viewport dimensions. */
 .video-placeholder {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%;
-  /* 16:9 Aspect Ratio */
-  border-radius: 0.25rem;
-  background-color: #000;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	padding-top: 56.25%;
+	/* 16:9 Aspect Ratio */
+	border-radius: 0.25rem;
+	background-color: #000;
 }
 
 .video-placeholder iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
 }
 
 /* --- The rest of the CSS follows the same principles --- */
 /* (Code from previous step is unchanged as it already uses best practices) */
 .video-content {
-  text-align: left;
+	text-align: left;
 }
 
 .video-title {
-  color: #88392b;
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.5rem;
+	color: #88392b;
+	font-size: 1.5rem;
+	font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: -0.03em;
+	margin-bottom: 0.5rem;
 }
 
 .video-description {
-  color: #000000;
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+	color: #000000;
+	font-size: 1.125rem;
+	font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: -0.03em;
 }
 
 .simulation-wrapper {
-  width: 100%;
-  border-radius: 1.125rem;
-  background-color: #e9e8e6;
-  box-shadow: 0 0 0 1px rgba(200, 199, 193, 0.5);
-  padding: 0.5rem;
-  margin-bottom: 4rem;
+	width: 100%;
+	border-radius: 1.125rem;
+	background-color: #e9e8e6;
+	box-shadow: 0 0 0 1px rgba(200, 199, 193, 0.5);
+	padding: 0.5rem;
+	margin-bottom: 4rem;
 }
 
 .simulation-inner {
-  width: 100%;
-  border-radius: 0.625rem;
-  background-color: #111110;
-  padding: 1.25rem;
+	width: 100%;
+	border-radius: 0.625rem;
+	background-color: #111110;
+	padding: 1.25rem;
 }
 
 .simulation-header {
-  border-bottom: 2px solid #ffffff;
-  display: inline-block;
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
+	border-bottom: 2px solid #ffffff;
+	display: inline-block;
+	padding-bottom: 0.5rem;
+	margin-bottom: 2rem;
 }
 
 .simulation-title {
-  color: #fdfdfc;
-  font-family: "Geist Mono", -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 1.1875rem;
-  font-weight: 400;
-  line-height: 1.1;
+	color: #fdfdfc;
+	font-family: "Geist Mono", -apple-system, Roboto, Helvetica, sans-serif;
+	font-size: 1.1875rem;
+	font-weight: 400;
+	line-height: 1.1;
 }
 
 .simulation-content {
-  display: flex;
-  gap: 1rem;
+	display: flex;
+	gap: 1rem;
 }
 
 .instructions-panel {
-  flex: 1;
-  background-color: #2a2a28;
-  border: 1px solid rgba(98, 96, 91, 0.25);
-  border-radius: 0.375rem;
-  padding: 1.5625rem 1.3125rem;
+	flex: 1;
+	background-color: #2a2a28;
+	border: 1px solid rgba(98, 96, 91, 0.25);
+	border-radius: 0.375rem;
+	padding: 1.5625rem 1.3125rem;
 }
 
 .instruction-title {
-  color: #ffcb8b;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6875;
-  margin-bottom: 0.5rem;
+	color: #ffcb8b;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.6875;
+	margin-bottom: 0.5rem;
 }
 
 .instruction-text {
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6875;
-  margin-bottom: 1.0625rem;
+	color: #ffffff;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.6875;
+	margin-bottom: 1.0625rem;
 }
 
 .warning-text {
-  color: #ff9c9c;
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 1.0625rem;
+	color: var(--brand-red);
+	font-size: 1rem;
+	font-weight: 400;
+	margin-bottom: 1.0625rem;
 }
 
 .success-text {
-  color: #92eaac;
-  font-size: 1rem;
-  font-weight: 400;
+	color: #92eaac;
+	font-size: 1rem;
+	font-weight: 400;
 }
 
 .underline {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .message {
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 0.375rem;
-  text-align: center;
+	padding: 1rem;
+	margin: 1rem 0;
+	border-radius: 0.375rem;
+	text-align: center;
 }
 
 .success-message {
-  background-color: #92eaac;
-  color: #000;
+	background-color: #92eaac;
+	color: #000;
 }
 
 .error-message {
-  background-color: #ff9c9c;
-  color: #000;
+	background-color: #ff9c9c;
+	color: #000;
 }
 
+
+.form-panel {
+	width: 35%;
+	height: auto;
+	padding: 1.25rem 1rem;
+	flex-direction: column;
+	gap: 1.5rem;
+	border-radius: 0.375rem;
+	border: 1px solid rgba(98, 96, 91, 0.25);
+	background: #2a2a28;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+/* Make all direct children of form-panel take full width */
+.form-panel > * {
+	width: 100%;
+}
+
+/* Ensure forms inside form-panel are full width */
+.form-panel form:not([hidden]) {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.form-field {
+	margin-bottom: 1.0625rem;
+	/* 17px */
+}
+
+.form-label {
+	color: #c5c5c5;
+	font-family: "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+	font-size: 1rem;
+	/* 16px */
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	/* Relative to font-size (0.64px / 16px) */
+	display: block;
+	margin-bottom: 0.25rem;
+	/* 4px */
+}
+
+.form-input {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	/* 12px 16px */
+	border-radius: 0.5rem;
+	/* 8px */
+	border: 1px solid #efefef;
+	background-color: #ffffff;
+	color: #000000;
+	font-family: "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
+	font-size: 0.9375rem;
+	/* 15px mobile default */
+	font-weight: 400;
+	opacity: 0.8;
+}
+
+.disclaimer-text {
+  color: #ffffff;
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  text-align: center;
+}
+
+.submit-section {
+	text-align: center;
+}
+
+button {
+	width: 100%;
+	height: 3rem;
+	padding: 0.75rem 1.5rem;
+	cursor: pointer;
+	margin-bottom: 0.4375rem;
+	border-radius: 0.5rem;
+	transition: background-color 0.2s;
+	font-size: 1rem;
+}
+
+.submit-button {
+	border: 1px solid #c9c9c9;
+	/* 8px */
+	background-color: #f7f7f9;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+	/* px is ideal for shadows */
+	color: #000000;
+}
+
+.reset-button {
+	background-color: var(--brand-red);
+	color: white;
+	padding: 0.625rem 1.25rem;
+}
+
+
+.test-failed {
+  color: #d16969;
+  text-align: center;
+}
+
+.test-failed h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.results-data {
+  width: 100%;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1rem 0;
+  font-family: var(--font-mono);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.results-data h4 {
+  width: 100%;
+  color: #d16969;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  border-bottom: 1px dashed #555;
+  padding-bottom: 0.625rem;
+}
+
+.results-data pre {
+  color: #4ec9b0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+}
 
 /* ========================================================== */
 /* Responsive Styles (For major layout shifts)                */
 /* ========================================================== */
 
 @media (max-width: 64em) {
-  .simulation-content {
-    flex-direction: column;
-  }
+	.simulation-content {
+		flex-direction: column;
+	}
 }
 
 @media (max-width: 30em) {
-  .container {
-    padding: 0 1rem;
-  }
+	.container {
+		padding: 0 1rem;
+	}
 }

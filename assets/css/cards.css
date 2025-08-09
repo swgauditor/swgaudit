@@ -82,9 +82,7 @@
   right: -3.75rem; /* -60px */
   bottom: -5rem; /* -80px */
   width: auto;
-  height: 20vw; /* Scales with viewport, but constrained by max-height */
-  max-height: 18.75rem; /* 300px */
-  min-height: 12.5rem; /* 200px, prevents it getting too small */
+  height: 80%; /* Scales with viewport, but constrained by max-height */
   object-fit: contain;
   pointer-events: none;
   z-index: 0;

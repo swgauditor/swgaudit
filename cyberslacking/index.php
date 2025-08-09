@@ -1,20 +1,35 @@
 <?php
-$page = 'cyberslacking'; // Set active page for navigation
+  $title = "Cyber‑Slacking Test - SWG Audit";
+  $description = "Evaluate your Secure Web Gateway's ability to enforce acceptable use policies and block non-work-related content.";
+  $keywords = "SWG, Cyber‑Slacking Test, Content Filtering, Secure Web Gateway, Cybersecurity";
+  $url = "https://www.swgaudit.com/cyberslacking";
+  $page = 'cyberslacking'; // Set active page for navigation
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phishing Security Audit</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="/components/styles.css" />
-    <link rel="stylesheet" href="/assets/css/global.css" />
-    <link rel="preload" href="/assets/fonts/albertSans.ttf" as="font" crossorigin>
 
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title><?php echo $title ?></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?php echo $description ?>" >
+    <meta name="keywords" content="<?php echo $keywords ?>" >
+    <meta name="author" content="SWG Audit">
+
+    <meta property="og:title" content="<?php echo $title ?>" >
+    <meta property="og:description" content="<?php echo $description ?>" >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo $url ?>" >
+    
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="styles.css">
+
+</head>
   <body>
     <!-- Navigation -->
     <?php include '../components/header.php'; ?>
@@ -26,8 +41,8 @@ $page = 'cyberslacking'; // Set active page for navigation
           <!-- Hero Content -->
           <div class="hero-content">
             <h1 class="hero-title">
-              Can Your Security Limit
-              <span class="text-red">Non&#8209;Productive Web 2.0 Usage?</span>
+              Can Your Perimeter Security
+              <span class="text-red">Regulate Web 2.0 Usage?</span>
             </h1>
             <p class="hero-description">
               While platforms like YouTube and social media serve legitimate
@@ -51,13 +66,6 @@ $page = 'cyberslacking'; // Set active page for navigation
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
               </iframe>
-            </div>
-
-            <div class="video-content">
-              <h3 class="video-title">Website Categorization</h3>
-              <p class="video-description">
-                This video will assist you in "how the website is categorized".
-              </p>
             </div>
           </div>
         </section>

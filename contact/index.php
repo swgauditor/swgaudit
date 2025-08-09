@@ -1,18 +1,35 @@
 <?php
-$page = 'contact-us'; // Set active page for navigation
+  $title = "Contact Us - SWG Audit";
+  $description = "An open-source initiative to help buyers validate the real-world effectiveness of their perimeter security solutions.";
+  $keywords = "cybersecurity, security audit, phishing, malware, data theft, cyberslacking";
+  $url = "https://www.swgaudit.com/contact";
+  $page = 'contact-us'; // Set active page for navigation
 ?>
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - Swg-audit</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="/components/styles.css" />
-    <link rel="preload" href="/assets/fonts/albertSans.ttf" as="font" crossorigin>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    
+    <title><?php echo $title ?></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?php echo $description ?>" >
+    <meta name="keywords" content="<?php echo $keywords ?>" >
+    <meta name="author" content="SWG Audit">
+
+    <meta property="og:title" content="<?php echo $title ?>" >
+    <meta property="og:description" content="<?php echo $description ?>" >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo $url ?>" >
+    
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="styles.css">
+
+</head>
   <body>
 
     <!-- Navigation Header -->
@@ -23,16 +40,18 @@ $page = 'contact-us'; // Set active page for navigation
     <main class="main-content">
       <!-- Hero Text -->
       <div class="hero-section">
-        <h1 class="hero-title">
+        <h1 class="hero-title">Thank you for the support.</h1>
+        <p class="hero-subtitle">
           We do not collect or store any test data. For questions, feedback, or
           collaboration opportunities, use this form to reach the core team.
-        </h1>
+        </p>
       </div>
 
       <!-- Contact Form -->
       <div class="form-container">
         <form action="contact.php" method="POST" class="contact-form">
-          <!-- Name and Email Row -->
+
+          <!-- Name, Organisation, and Email Row -->
           <div class="form-row">
             <!-- Name Field -->
             <div class="form-group form-group-name">
@@ -41,70 +60,36 @@ $page = 'contact-us'; // Set active page for navigation
                 type="text"
                 id="name"
                 name="name"
-                placeholder="John Smith"
+                placeholder="Your Name"
                 class="form-input"
                 required
               />
             </div>
 
-            <!-- Email Field -->
-            <div class="form-group form-group-email">
-              <label for="email" class="form-label">Email</label>
+            <!-- Organisation Field (Optional) -->
+            <div class="form-group form-group-org">
+              <label for="organisation" class="form-label">Organisation <span style="font-weight:400; color:#888; font-size:16px;">(Optional)</span></label>
               <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="John.smith@gmail.com"
+                type="text"
+                id="organisation"
+                name="organisation"
+                placeholder="Your Organisation"
                 class="form-input"
-                required
               />
             </div>
           </div>
 
-          <!-- Phone Number Section -->
+          <!-- Email Field -->
           <div class="form-group">
-            <label for="phone" class="form-label">Number</label>
-            <div class="phone-row">
-              <!-- Country Code Selector -->
-              <div class="country-selector">
-                <div class="flag-container">
-                  <div class="indian-flag">
-                    <div class="flag-stripe flag-orange"></div>
-                    <div class="flag-stripe flag-white"></div>
-                    <div class="flag-stripe flag-green"></div>
-                    <div class="flag-chakra">
-                      <div class="chakra-inner"></div>
-                    </div>
-                  </div>
-                  <span class="country-code">+91</span>
-                </div>
-                <svg
-                  class="dropdown-icon"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                >
-                  <path
-                    d="M5.25 7.125L9 10.875L12.75 7.125"
-                    stroke="#AEAEAE"
-                    stroke-width="1.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-
-              <!-- Phone Number Input -->
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="98356 98356"
-                class="form-input phone-input"
-                required
-              />
-            </div>
+            <label for="email" class="form-label">Email Id</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              class="form-input"
+              required
+            />
           </div>
 
           <!-- Message Field -->
@@ -113,7 +98,7 @@ $page = 'contact-us'; // Set active page for navigation
             <textarea
               id="message"
               name="message"
-              placeholder="We are interested in your product and would like to know more"
+              placeholder="Type your message here"
               class="form-textarea"
               required
             ></textarea>
@@ -127,5 +112,6 @@ $page = 'contact-us'; // Set active page for navigation
       </div>
 
     </main>
+    <!-- Removed intl-tel-input JS as phone field is no longer present -->
   </body>
 </html>

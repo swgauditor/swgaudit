@@ -1,18 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
-const form = document.querySelector('form');
-const submitBtn = document.getElementById('submitBtn');
-const successMessage = document.getElementById('successMessage');
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('phishing-form');
+    const resetContainer = document.getElementById('reset-container');
+    const capturedCredentials = document.getElementById('captured-credentials');
+    const resetBtn = document.getElementById('resetBtn');
 
-form.addEventListener('submit', function(e) {
-    // Show immediate feedback while form submits
-    successMessage.style.display = 'block';
-
-    // Update button text
-    submitBtn.textContent = 'Submitting...';
-    submitBtn.style.backgroundColor = '#92eaac';
-    submitBtn.style.color = '#000';
-    submitBtn.disabled = true;
-
-    // Form will now submit to process.php
-});
+    resetBtn.addEventListener('click', function() {
+        // Reset form values
+        form.reset();
+        form.hidden = false; // Show form
+        resetContainer.hidden = true; // Hide results panel
+        
+        // Clear captured credentials
+        capturedCredentials.textContent = '';
+        
+        // Clear URL parameters
+        window.history.replaceState({}, document.title, window.location.pathname);
+    });
 });
