@@ -6,3 +6,4 @@
     <span class="link"><a href="/privacy">Privacy Policy</a></span>.
   </div>
 </footer>
+<script src="/assets/js/global.js"></script>

@@ -1,5 +1,6 @@
 <!-- Google tag (gtag.js) -->
 <script async src="/assets/js/gtag.js"></script>
+<script async src="/assets/js/global.js"></script>
 <header class="header">
   <div class="header-container">
     <!-- Left side - Logo only -->
@@ -14,7 +15,7 @@
     </a>
     
     <!-- Hamburger menu for mobile -->
-    <button class="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" onclick="document.getElementById('mobile-nav').classList.toggle('open');this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');">
+    <button class="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
       <span></span>
       <span></span>
@@ -23,15 +24,15 @@
     <!-- Desktop navigation (hidden on mobile) -->
     <div class="nav-center">
       <div class="nav-menu">
-        <a href="/phishing/" class="nav-item <?php echo (isset($page) && $page == 'phishing') ? 'active' : ''; ?>">Phishing</a> 
-        <a href="/malware/" class="nav-item <?php echo (isset($page) && $page == 'malware') ? 'active' : ''; ?>">Malware</a>
-        <a href="/data-theft/" class="nav-item <?php echo (isset($page) && $page == 'data-theft') ? 'active' : ''; ?>">Data Theft</a>
-        <a href="/cyberslacking/" class="nav-item <?php echo (isset($page) && $page == 'cyberslacking') ? 'active' : ''; ?>">Cyberslacking</a>
+        <a href="/phishing/" class="nav-item">Phishing</a> 
+        <a href="/malware/" class="nav-item">Malware</a>
+        <a href="/data-theft/" class="nav-item">Data Theft</a>
+        <a href="/cyberslacking/" class="nav-item">Cyberslacking</a>
       </div> 
     </div>
     <div class="nav-left">
-      <a href="/about/" class="nav-item <?php echo (isset($page) && $page == 'about') ? 'active' : ''; ?>">About Us</a>
-      <a href="/contribute/" class="nav-item <?php echo (isset($page) && $page == 'contribute') ? 'active' : ''; ?>">Contribute</a>
+      <a href="/about/" class="nav-item">About Us</a>
+      <a href="/contribute/" class="nav-item">Contribute</a>
       <a href="https://github.com/swgauditor/swgaudit" class="github-icon" target="_blank" rel="noopener">
         <svg
           width="24"
@@ -56,9 +57,8 @@
       <a href="/malware/" class="nav-item">Malware</a>
       <a href="/data-theft/" class="nav-item">Data Theft</a>
       <a href="/cyberslacking/" class="nav-item">Cyberslacking</a>
-      <a href="/components/contact/" class="nav-item">contact-us</a>
-      <a href="about/" class="nav-item">About-us</a>
-      <a href="https://github.com/swgauditor/swgaudit/issues" class="nav-item">Contribute</a>
+      <a href="/about/" class="nav-item">About Us</a>
+      <a href="/contribute/" class="nav-item">Contribute</a>
       <a href="https://github.com/swgauditor/swgaudit" class="github-icon" target="_blank" rel="noopener">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path
