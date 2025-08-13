@@ -1,25 +1,86 @@
+const dataTheftForm = document.getElementById('data-theft-form');
 const uploadArea = document.getElementById('upload-area');
 const fileInput = document.getElementById('fileInput');
+const removeFileBtn = document.getElementById('removeFile');
 let selectedFile = null;
 const fileDetails = document.getElementById('file-details');
 const fileName = document.getElementById('selected-filename');
 const fileSize = document.getElementById('selected-filesize');
 const uploadButton = document.getElementById('uploadButton');
+const timerElement = document.getElementById('timer');
+const copyBtn = document.getElementById('copy-button');
+const downloadButton = document.getElementById("download-button");
+const resetContainer = document.getElementById('reset-container');
+const resetBtn = document.getElementById('resetBtn');
+
+function generateRandomId() {
+    const id = Math.random().toString(36).substring(5, 15);
+    console.log('Generated new ID:', id);
+    return id;
+}
+let currentId = generateRandomId();
+let countdownInterval;
+
+function changeSimulationState(stepID) {
+    switch (stepID) {
+        case 1:
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            currentId = generateRandomId();            
+            dataTheftForm.reset();
+            selectedFile = null;
+            uploadButton.disabled = true;
+            uploadArea.hidden = false;
+            resetContainer.hidden = true;
+            fileDetails.hidden = true;
+            dataTheftForm.hidden = false;
+            break;
+        case 2:
+            uploadArea.hidden = true;
+            fileDetails.hidden = false;
+            uploadButton.disabled = false;
+            break;
+        case 3:
+            let timeLeft = 600; // 10 minutes in seconds
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            countdownInterval = setInterval(() => {
+                // console.log('Timer update:', timeLeft);
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerElement.textContent = `File will be deleted from the server in ${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft === 0) {
+                    clearInterval(countdownInterval);
+                    window.location.reload();
+                }
+                timeLeft--;
+            }, 1000);
+
+            resetContainer.hidden = false;
+            dataTheftForm.hidden = true;
+            uploadArea.hidden = true;
+            fileDetails.hidden = false;
+            downloadButton.hidden = false;
+            copyBtn.hidden = false;
+            uploadButton.disabled = true;
+            break;
+        default:
+            break;
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing event listeners');
 
     // Initialize remove button handler
-    const removeFileBtn = document.querySelector('.remove-file');
     if (removeFileBtn) {
         removeFileBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            selectedFile = null;
-            uploadButton.disabled = true;
-            
-            // Show upload area and hide file details
-            uploadArea.hidden = false;
-            document.getElementById('file-details').hidden = true;
+            changeSimulationState(1);
+            console.log('File removed, upload area reset');
         });
     }
 
@@ -28,20 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
             selectedFile = files[0];
             if (selectedFile.size > 100 * 1024) {
                 alert("File size must be less than 100KB.");
-                selectedFile = null;
-                uploadButton.disabled = true;
+                changeSimulationState(1);
                 return;
+            } else {
+                fileSize.textContent = formatBytes(selectedFile.size);
+                fileName.textContent = selectedFile.name;
+                changeSimulationState(2);
             }
-            
-            // Update file details
-            fileName.textContent = selectedFile.name;
-            fileSize.textContent = formatBytes(selectedFile.size);
-            
-            // Hide upload area and show file details
-            uploadArea.hidden = true;
-            fileDetails.hidden = false;
-            
-            uploadButton.disabled = false;
         }
     };
 
@@ -68,57 +122,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resetBtn.addEventListener('click', function() {
         // Reset form values and selected file
-        form.reset();
-        selectedFile = null;
-        form.hidden = false; // Show form
-        resetContainer.hidden = true; // Hide results panel
-        uploadButton.disabled = true;
-        const uploadText = uploadArea.querySelector('.upload-text');
-        uploadText.textContent = 'Drag and drop or click to select a file';
-        
-        // Clear URL parameters
-        window.history.replaceState({}, document.title, window.location.pathname);
+        changeSimulationState(1);
     });
 
 });
-
-function generateRandomId() {
-    const id = Math.random().toString(36).substring(5, 15);
-    console.log('Generated new ID:', id);
-    return id;
-}
-let currentId = generateRandomId();
-let countdownInterval;
 
 async function fetchResults() {
     console.log('Fetching results for ID:', currentId);
     try {
         const response = await fetch(`fetch_uploaded_data.php?id=${currentId}`);
-        console.log('Fetch response:', response);
         const data = await response.json();
-        console.log('Parsed response data:', data);
         
         if (!data.success) {
             console.warn('Request failed:', data.message);
-            document.getElementById('resultMessage').textContent = data.message;
             return;
         }
 
-        currentId = generateRandomId();
         console.log('Generated new ID after successful fetch:', currentId);
 
         if (data.fileUrl) {
             console.log('File URL received:', data.fileUrl);
-            const link = document.createElement('a');
-            link.href = data.fileUrl;
-            link.textContent = 'Download reconstructed file';
-            document.getElementById('resultMessage').innerHTML = '';
-            document.getElementById('resultMessage').appendChild(link);
         }
             
     } catch (error) {
         console.error('Error in fetchResults:', error);
-        document.getElementById('resultMessage').textContent = 'Error loading results: ' + error.message;
     }
 }
 
@@ -134,15 +161,6 @@ async function handleFileUpload(file) {
         alert("File size must be less than 100KB.");
         return;
     }
-
-    const uploadText = uploadArea.querySelector('.upload-text');
-    const constraints = uploadArea.querySelector('.constraints');
-    
-    // Disable further uploads
-    uploadArea.style.pointerEvents = 'none';
-    uploadArea.classList.add('uploading');
-    uploadText.textContent = `Uploading ${file.name}`;
-    constraints.textContent = 'Data Exfiltrated: 0 bytes';
     
     const reader = new FileReader();
     reader.onload = async function(evt) {
@@ -192,7 +210,6 @@ async function handleFileUpload(file) {
         
         let completedChunks = 0;
         const totalChunks = chunks.length;
-        let totalBytesExfiltrated = 0;
 
         try {
             console.log('Starting chunk upload process:', { totalChunks });
@@ -208,12 +225,6 @@ async function handleFileUpload(file) {
                     console.error(`Request failed for chunk ${chunk.number}:`, error);
                 } finally {
                     completedChunks++;
-                    const progress = (completedChunks / totalChunks) * 100;
-                    uploadArea.style.setProperty('--progress', `${progress}%`);
-                    
-                    totalBytesExfiltrated += chunk.data.join('.').length;
-                    constraints.textContent = `Data Exfiltrated: ${formatBytes(totalBytesExfiltrated)}`;
-                    console.log(`Progress update: ${progress}%, bytes exfiltrated: ${totalBytesExfiltrated}`);
                 }
             }));
 
@@ -223,20 +234,6 @@ async function handleFileUpload(file) {
             
             if (data.success && data.fileUrl) {
                 console.log('File upload successful, updating UI with URL:', data.fileUrl);
-                const Card = document.getElementById('upload-area');
-                const failureContainer = document.getElementById("failure-container");
-                const malwareForm = document.getElementById('upload-area');
-                const copyBtn = document.getElementById('copy-button');
-                const downloadButton = document.getElementById("download-button");
-
-                // Unhide failure container
-                failureContainer.hidden = false;
-
-                // Hide upload-content div
-                const uploadContent = document.querySelector('.upload-area');
-                if (uploadContent) {
-                    uploadContent.hidden = true;
-                }
 
                 // Update download button with file URL
                 downloadButton.onclick = (e) => {
@@ -251,33 +248,13 @@ async function handleFileUpload(file) {
                     setTimeout(() => copyBtn.classList.remove('copied'), 2000);
                 };
 
-                let timeLeft = 600; // 10 minutes in seconds
-                const timerElement = document.getElementById('timer');
-                if (countdownInterval) {
-                    clearInterval(countdownInterval);
-                }
-                countdownInterval = setInterval(() => {
-                    // console.log('Timer update:', timeLeft);
-                    const minutes = Math.floor(timeLeft / 60);
-                    const seconds = timeLeft % 60;
-                    timerElement.textContent = `File will be deleted from the server in ${minutes}:${seconds.toString().padStart(2, '0')}`;
-                    
-                    if (timeLeft === 0) {
-                        clearInterval(countdownInterval);
-                        window.location.reload();
-                    }
-                    timeLeft--;
-                }, 1000);
+                changeSimulationState(3);
+
             }
-            
-            currentId = generateRandomId();
-            console.log('Process complete, new ID generated:', currentId);
         } catch (error) {
             console.error('Upload process failed:', error);
             uploadArea.style.pointerEvents = 'auto';
             uploadArea.classList.remove('uploading');
-            uploadText.textContent = 'Drag and drop or click to upload a file';
-            constraints.textContent = 'Maximum file size: 100KB';
         }
     };
     reader.readAsArrayBuffer(file);

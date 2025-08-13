@@ -110,7 +110,7 @@ $url = "https://www.swgaudit.com/cyberslacking";
 										<span class="file-name" id="selected-filename"></span>
 										<span class="file-size" id="selected-filesize"></span>
 									</div>
-									<button type="button" class="remove-file" aria-label="Remove selected file">✕</button>
+									<button id="removeFile" type="button" class="remove-file" aria-label="Remove selected file">✕</button>
 								</div>
 								<input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.gif,.txt,.doc,.docx" hidden>
 								<button type="button" id="uploadButton" class="submit-button" disabled>Upload File</button>
@@ -124,11 +124,11 @@ $url = "https://www.swgaudit.com/cyberslacking";
 								</div>
 
 								<div class="results-data">
-									<h4>File Uploaded</h4>
+									<h4>Data Stolen</h4>
 									<div class="button-container">
 										<button class="download-button" id="download-button">Download File</button>
 										<br>
-										<button class="copy-button" id="copy-button">Copy Download Link</button>
+										<button class="copy-button" id="copy-button">Copy File URL</button>
 									</div>
 								</div>
 
