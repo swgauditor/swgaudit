@@ -21,6 +21,7 @@
 	font-size: 16px;
 	scroll-behavior: smooth;
 	--brand-red: #88392b;
+	--dark-fail: #FF9c9c;
 	--text-gray: #424242;
 
 
@@ -160,11 +161,11 @@ nav ul {
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	gap: 2rem;
 }
 
 nav ul li a {
 	text-decoration: none;
-	padding: 1rem 1.5rem;
 	text-wrap: nowrap;
 	display: block;
 	color: black;
@@ -474,7 +475,7 @@ main {
 }
 
 .warning-text {
-	color: var(--brand-red);
+	color: var(--dark-fail);
 	font-size: 1rem;
 	font-weight: 400;
 	margin-bottom: 1.0625rem;
