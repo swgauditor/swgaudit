@@ -43,49 +43,6 @@
       </section>
 
       <section class="warning-section" aria-labelledby="problems-heading">
-        
-        <!-- Problem 1 -->
-        <div class="warning-item">
-          <div class="warning-content">
-            <div class="warning-icon" aria-hidden="true">
-              <div class="warning-icon-inner">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 25 25"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.4688 22.5C6.9459 22.5 2.46875 18.0228 2.46875 12.5C2.46875 6.97715 6.9459 2.5 12.4688 2.5C17.9916 2.5 22.4688 6.97715 22.4688 12.5C22.4688 18.0228 17.9916 22.5 12.4688 22.5Z"
-                    stroke="#88392B"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M12.4688 8.5V13"
-                    stroke="#88392B"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M12.4688 16.4883V16.4983"
-                    stroke="#88392B"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-            <p >
-              Buyers are often left in the dark, relying solely on vendor
-              promises without any means of independent verification.
-            </p>
-          </div>
-        </div>
 
         <!-- Problem 2 -->
         <div class="warning-item">
@@ -130,6 +87,51 @@
             </p>
           </div>
         </div>
+      
+        <!-- Problem 1 -->
+        <div class="warning-item">
+          <div class="warning-content">
+            <div class="warning-icon" aria-hidden="true">
+              <div class="warning-icon-inner">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.4688 22.5C6.9459 22.5 2.46875 18.0228 2.46875 12.5C2.46875 6.97715 6.9459 2.5 12.4688 2.5C17.9916 2.5 22.4688 6.97715 22.4688 12.5C22.4688 18.0228 17.9916 22.5 12.4688 22.5Z"
+                    stroke="#88392B"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12.4688 8.5V13"
+                    stroke="#88392B"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12.4688 16.4883V16.4983"
+                    stroke="#88392B"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <p >
+              Buyers are often left in the dark, relying solely on vendor
+              promises without any means of independent verification.
+            </p>
+          </div>
+        </div>
+
+        
       </section>
 
       <section class="hero" aria-labelledby="hero-title">

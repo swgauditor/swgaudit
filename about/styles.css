@@ -33,6 +33,7 @@
 .warning-item {
   flex: 1;
   padding: var(--size-sm) var(--size-md);
+  max-width: 47ch;
 }
 
 .warning-item:last-child {
@@ -238,8 +239,8 @@
 
 .warning-section {
   flex-direction: row;
-  gap: 0;
   gap: var(--size-md);
+  justify-content: center;
 }
 
 .feature-content {
