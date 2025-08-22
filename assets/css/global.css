@@ -1,203 +1,192 @@
-/*
-  global.css
-  -------------
-  This stylesheet uses a professional hybrid unit strategy.
-  - vh/vw for viewport-level sizing and fluid typography.
-  - rem for accessible, scalable font sizes and spacing.
-  - %/max-width for fluid, yet constrained, container widths.
-*/
-
-/* ===================== */
-/*     CSS Variables     */
-/* ===================== */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "Albert Sans", -apple-system, Roboto, Helvetica, sans-serif;
-}
-
 :root {
-	font-size: 16px;
-	scroll-behavior: smooth;
+	--default-font-size: clamp(14px, 1.5vw, 18px); /* Fluid root font size */
+
+	--font-family: "Albert Sans", -apple-system, Roboto, Helvetica, sans-serif;
+
 	--brand-red: #88392b;
 	--dark-fail: #FF9c9c;
 	--text-gray: #424242;
+	--text-black: #09090b;
 
+	--border-1: 1px solid #e2e2e2;
 
-	--container-max-width: 1440px;
+	/* Fluid sizing scale */
+	--size-xs: clamp(0.5rem, 0.5vw, 0.75rem);
+	--size-sm: clamp(0.75rem, 0.75vw, 1rem);
 
-	/* Spacing scale */
-	--space-xs: 4px;
-	--space-sm: 8px;
-	--space-md: 16px;
-	--space-lg: 24px;
-	--space-xl: 32px;
-	--space-2xl: 48px;
-	--space-3xl: 64px;
-	--space-4xl: 80px;
+	--size-md: clamp(1rem, 0.92rem + 0.19vw, 1.125rem);
+	--size-lg: clamp(1.25rem, 0.96rem + 0.7vw, 2rem);
+	--size-xl: clamp(1.2rem, 3.5vw, 4rem);
+	--size-2xl: clamp(1.5rem, 0.54rem + 4.66vw, 3.75rem);
+
 }
 
 /* ===================== */
 /*     Base Styles      */
 /* ===================== */
 
+html {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
-	/* Ensure the body is at least as tall as the viewport */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	color: var(--text-black);
+	font-family: var(--font-family);
+	font-size: var(--default-font-size);
+	line-height: 1.4;
 	min-height: 100vh;
+}
+
+header,
+main,
+footer,
+div,
+section,
+article,
+nav,
+aside {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex: 1;
+	justify-content: space-between;
+	align-items: center;
+}
+
+h1, h2, h3, h4, h5, p {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h1 {
+	font-size: var(--size-xl);
+	font-weight: 400;
+	line-height: 1.1;
+	letter-spacing: -0.04em;
 	color: #09090b;
 }
 
-main {
-	flex: 1 0 auto;
-	width: 100%;
+h2 {
+	font-size: var(--size-lg);
+	font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: -0.03em;
+	color: var(--text-black);
+}
+
+h3 {
+	font-size: var(--size-md);
+	font-weight: 400;
+	line-height: 1.2;
+	color: #ffcb8b;
+}
+
+p {
+	font-size: var(--size-md);
+	font-weight: 400;
+	line-height: 1.4;
+	color: var(--text-gray);
+}
+
+header, main, footer {
+	padding: var(--size-md) var(--size-xl);
 	margin: 0 auto;
-	padding: 0 2rem;
+}
+
+main {
+	flex-direction: column;
+	min-height: 90vh;
+	align-items: stretch;
+}
+
+section {
+	padding-block: var(--size-md);
 }
 
 /* ===================== */
 /*    Header Styles     */
 /* ===================== */
-
-.header {
+header {
 	position: sticky;
 	top: 0;
 	z-index: 1000;
-	width: 100%;
-	display: flex;
-	height: 3.5rem;
-	padding: 0 1rem;
-	justify-content: center;
-	align-items: center;
-	border-bottom: 1px solid #e2e2e2;
+	flex-direction: row !important; 
+
+	border-bottom: var(--border-1);
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 	background: white;
 }
 
-.header-container {
-	display: flex;
+nav {
+	flex-direction: row !important; 
 	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	max-width: 86.125rem;
+	flex: 0 0 auto;
+	gap: var(--size-lg);
 }
 
-.logo {
-	color: #000;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: normal;
+nav a {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--size-sm);
+	
 	text-decoration: none;
+	text-wrap: nowrap;
+	flex-direction: row;
+  	justify-content: center;
+
+	color: var(--text-black);
 }
 
-/* ===================== */
-/*  Navigation Styles   */
-/* ===================== */
-.nav-right,.nav-center {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-/* For active nav-item */
-.nav-item.active {
+nav a.active {
 	color: var(--brand-red);
 }
 
-.github-icon {
-	display: flex;
-	align-items: center;
-	flex-shrink: 0;
-	background-image: url('/assets/images/github-mark.svg');
-	background-size: contain; /* This will make sure the image stays contained */
-	background-position: center; /* Centers the image within the container */
-	background-repeat: no-repeat; /* Ensures the image doesn't repeat */
-	padding: 0.8rem;
+nav a:not(.active):hover {
+	border-bottom: 2px solid var(--brand-red);
+	color: var(--brand-red);
 }
 
 .github-icon:hover {
-	background-color: #f5f5f5;
-	border-radius: 0.25rem;
+	border-bottom: none !important;
 }
 
-/* Update nav styling */
-nav {
-    padding-inline: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-	width: 100%;
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    padding: 10px;
-    position: absolute;
-    right: 10px;
-    z-index: 1001;
-    background: none;
-    border: none;
-    width: auto;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background: var(--black);
-    transition: all 0.3s ease;
-}
-
-nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: 2rem;
-}
-
-nav ul li a {
-	text-decoration: none;
-	text-wrap: nowrap;
-	display: block;
-	color: black;
-}
-
-.logo {
-    max-height: calc(clamp(0.8rem, 2vw, 1rem) + 2rem);
-}
-
-nav ul li a:not(.active):hover {
-	background-color: var(--nav-hover-bg);
-	color: var(--nav-hover-text);
-}
-
-nav ul li a.active {
-	background-color: #fff;
-}
 /* ===================== */
 /*  Mobile Navigation   */
 /* ===================== */
-.hamburger{
-	width: auto;
-	border: none;
-	background: none;
-	display: none;
+.hamburger {
+    display: none;
+}
+
+.hamburger-icon svg {
+  transition: transform 0.3s ease;
 }
 
 /* Media query for mobile devices */
-@media (max-width: 824px) {
+@media (max-width: 700px) {
 
 	.hamburger {
         display: block;
+		cursor: pointer;
+		padding: 10px;
+		position: absolute;
+		right: 10px;
+		z-index: 1001;
+		background: none;
+		border: none;
+		width: auto;
     }
 
     nav {
@@ -260,40 +249,19 @@ nav ul li a.active {
     }
 }
 
-.hamburger-icon svg {
-  transition: transform 0.3s ease;
-}
-
 /* =============================== */
 /* Footer                         */
 /* =============================== */
-.footer {
+footer {
 	position: sticky;
 	bottom: 0;
 	left: 0;
-	width: 100%;
-	/* More robust than 100vw */
-	min-height: 3rem;
-	/* 48px */
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	text-align: center;
 	background: #fff;
-	border-top: 1px solid #e2e2e2;
-	z-index: 1000;
-	padding: 0.375rem 0.5rem;
-	/* 6px 8px */
-}
-
-.footer-text {
-	font-size: 0.75rem;
-	/* 12px mobile size */
-	font-weight: 400;
-	letter-spacing: -0.012em;
-	/* -0.19px / 15px */
 	color: var(--text-gray);
-	line-height: 1.4;
+	border-top: var(--border-1);
+	z-index: 1000;
+	justify-content: center;
 }
 
 .link {
@@ -302,58 +270,31 @@ nav ul li a.active {
 }
 
 /* ===================== */
-/* Layout & Containers   */
-/* ===================== */
-
-main {
-	/* BEST PRACTICE: Use % and max-width (in rem) for main containers.
-     This is better than `width: 90vw` because it prevents content from
-     becoming excessively wide on very large screens. */
-	width: 100%;
-	margin: 0 auto;
-	padding: 0 2rem;
-}
-
-/* ===================== */
 /* Hero & Top Section    */
 /* ===================== */
 
-.top-section {
+/* Select the first section */
+
+main > section:first-of-type {
 	display: flex;
+	flex-direction: row-reverse;
 	justify-content: space-between;
-	align-items: flex-start;
-	padding: 4rem 0;
 	gap: 2rem;
 	flex-wrap: wrap;
-	/* Allows sections to stack automatically */
+	align-items: stretch;
+	flex: 0;
 }
 
 .hero-content {
-	flex: 999 1 40ch;
-	/* Intrinsic sizing is more robust than a fixed vw width */
-}
-
-/* Main hero title styling */
-.hero-title {
-	font-size: clamp(2rem, 1.5rem + 3vw, 3.75rem);
-	font-weight: 400;
-	line-height: 1.1;
-	letter-spacing: -0.04em;
-	color: #09090b;
-	margin-bottom: 2rem;
+	flex: 999 0 60vw;
+	flex-direction: column;
+	gap: var(--size-md);
+	justify-content: flex-start;
 }
 
 .text-red {
-	color: #88392b;
-}
-
-.hero-description {
-	font-weight: 400;
-	line-height: 1.4;
-	letter-spacing: -0.03em;
-	color: #000000;
-	/* Another great use of clamp() for fluid text */
-	font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+	color: var(--brand-red);
+	text-decoration: none;
 }
 
 /* ===================== */
@@ -362,12 +303,12 @@ main {
 
 .video-section {
 	/* Let flexbox handle the width. Setting a `width` in vw would be too rigid. */
-	flex: 1 1 25rem;
-	max-width: 100%;
-	padding: 0.625rem 0.8125rem;
+	flex: 1 1 30vw;
 	display: flex;
 	flex-direction: column;
+	align-items: stretch;
 	gap: 1.5rem;
+	min-width: 220px;
 }
 
 /* We use the padding-top trick for aspect ratio, which is better than vh/vw.
@@ -378,8 +319,7 @@ main {
 	width: 100%;
 	padding-top: 56.25%;
 	/* 16:9 Aspect Ratio */
-	border-radius: 0.25rem;
-	background-color: #000;
+	height: 100%;
 }
 
 .video-placeholder iframe {
@@ -414,77 +354,90 @@ main {
 	letter-spacing: -0.03em;
 }
 
-.simulation-wrapper {
+.tablet-wrapper {
 	width: 100%;
 	border-radius: 1.125rem;
 	background-color: #e9e8e6;
 	box-shadow: 0 0 0 1px rgba(200, 199, 193, 0.5);
 	padding: 0.5rem;
-	margin-bottom: 4rem;
 }
 
-.simulation-inner {
+.tablet-inner {
 	width: 100%;
 	border-radius: 0.625rem;
 	background-color: #111110;
 	padding: 1.25rem;
-}
-
-.simulation-header {
-	border-bottom: 2px solid #ffffff;
-	display: inline-block;
-	padding-bottom: 0.5rem;
-	margin-bottom: 2rem;
-}
-
-.simulation-title {
-	color: #fdfdfc;
-	font-family: "Geist Mono", -apple-system, Roboto, Helvetica, sans-serif;
-	font-size: 1.1875rem;
-	font-weight: 400;
-	line-height: 1.1;
-}
-
-.simulation-content {
-	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
 	gap: 1rem;
 }
 
-.instructions-panel {
+.tablet-title {
+	color: #fdfdfc;
+	font-size: 1.1875rem;
+	font-weight: 400;
+	line-height: 1.1;
+
+	border-bottom: 2px solid #ffffff;
+	padding-bottom: 0.5rem;
+}
+
+.content-flex {
+	display: flex;
+	gap: 1rem;
+	align-items: stretch;
+	flex-wrap: wrap;
+	align-self: stretch;
+}
+
+.content-box {
 	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
 	background-color: #2a2a28;
 	border: 1px solid rgba(98, 96, 91, 0.25);
 	border-radius: 0.375rem;
 	padding: 1.5625rem 1.3125rem;
+
+	gap: var(--size-xs);
+  	text-align: center;
+	min-width: 10ch;
+
 }
 
-.instruction-title {
-	color: #ffcb8b;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.6875;
-	margin-bottom: 0.5rem;
+.content-box:hover {
+	background-color: #3a3a38;
+	border: 1px solid rgba(98, 96, 91, 0.5);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	
+	transition: all 0.2s ease-out;
+}
+
+.content-box img {
+	width: clamp(10px, 50%, 100px);
+}
+
+.instruction-panel {
+	flex: 2 1 40ch;
+	justify-content: flex-start;
+	align-items: flex-start;
+	text-align: left;
 }
 
 .instruction-text {
-	color: #ffffff;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.6875;
-	margin-bottom: 1.0625rem;
+	color: white;
 }
 
 .warning-text {
-	color: var(--dark-fail);
-	font-size: 1rem;
-	font-weight: 400;
-	margin-bottom: 1.0625rem;
+	color: var(--dark-fail) !important;
 }
 
 .success-text {
-	color: #92eaac;
-	font-size: 1rem;
-	font-weight: 400;
+	color: #92eaac !important;
 }
 
 .underline {
@@ -514,45 +467,33 @@ main {
 /* ===================== */
 
 .form-panel {
-	width: 35%;
-	height: auto;
 	padding: 1.25rem 1rem;
-	flex-direction: column;
 	gap: 1.5rem;
-	border-radius: 0.375rem;
-	border: 1px solid rgba(98, 96, 91, 0.25);
-	background: #2a2a28;
 	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-}
-
-.form-panel > * {
-	width: 100%;
+	color: #c5c5c5;
+	flex: 1 0 20%;
+	align-items: stretch;
+	justify-content: flex-start;
 }
 
 .form-panel form:not([hidden]) {
-	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 1.5rem;
 }
 
-.form-field {
-	margin-bottom: 1.0625rem;
+form > div {
+	display: flex;
+	align-items: stretch;
 }
 
-.form-label {
+form > div label {
 	color: #c5c5c5;
-	font-family: "Helvetica Neue", -apple-system, Roboto, Helvetica, sans-serif;
-	font-size: 1rem;
-	font-weight: 400;
-	letter-spacing: 0.04em;
-	display: block;
-	margin-bottom: 0.25rem;
+	flex: 1;
+	text-align: left;
 }
 
-.form-input {
+form > div input {
 	width: 100%;
 	padding: 0.75rem 1rem;
 	border-radius: 0.5rem;
@@ -563,6 +504,7 @@ main {
 	font-size: 0.9375rem;
 	font-weight: 400;
 	opacity: 0.8;
+	flex: 2;
 }
 
 .disclaimer-text {
@@ -572,23 +514,17 @@ main {
   text-align: center;
 }
 
-.submit-section {
-	text-align: center;
-}
-
 /* ===================== */
 /*    Button Styles     */
 /* ===================== */
 
 button {
-	width: 100%;
-	height: 3rem;
 	padding: 0.75rem 1.5rem;
 	cursor: pointer;
-	margin-bottom: 0.4375rem;
 	border-radius: 0.5rem;
 	transition: background-color 0.2s;
 	font-size: 1rem;
+	width: 100%;
 }
 
 .submit-button {
@@ -596,6 +532,15 @@ button {
 	background-color: #f7f7f9;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 	color: #000000;
+	min-height: 1rem;
+}
+
+.reset-container{
+	display: none;
+	flex-direction: column;
+	gap: 0.8rem;
+	align-items: stretch;
+	min-width: 40ch;
 }
 
 .reset-button {
@@ -616,23 +561,21 @@ button {
 }
 
 .results-data {
-  width: 100%;
   background-color: #1e1e1e;
   color: #d4d4d4;
   border: 1px solid #555;
   border-radius: 8px;
   padding: 1.25rem;
-  margin: 1rem 0;
   font-family: var(--font-mono);
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  flex-direction: column;
+  text-align: left;
+  align-items: stretch;
 }
 
 .results-data h4 {
-  width: 100%;
   color: #d16969;
-  margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 1.1em;
   letter-spacing: 1px;
   border-bottom: 1px dashed #555;
   padding-bottom: 0.625rem;
@@ -648,11 +591,19 @@ button {
 /* ===================== */
 /*   Utility Classes    */
 /* ===================== */
+.text-red {
+	color: var(--brand-red);
+}
 
-.underline {
+@media (max-width: 920px) {
+
+}
+
+.link {
 	text-decoration: underline;
 }
 
-.text-red {
-	color: var(--brand-red);
+.underline{
+    text-decoration: underline;
+    color: #ffcb8b;
 }

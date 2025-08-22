@@ -32,7 +32,7 @@
 	<?php include '../components/header.php'; ?>
 
     <!-- Main Content -->
-    <main class="main container" role="main">
+    <main>
 
       <!-- Problems Section -->
       <section class="intro-section">
@@ -80,7 +80,7 @@
                 </svg>
               </div>
             </div>
-            <p class="warning-text">
+            <p >
               Buyers are often left in the dark, relying solely on vendor
               promises without any means of independent verification.
             </p>
@@ -123,7 +123,7 @@
                 </svg>
               </div>
             </div>
-            <p class="warning-text">
+            <p>
               Many vendors continue to promote outdated solutions with bold
               marketing claims—offering little transparency or proof of actual
               protection.

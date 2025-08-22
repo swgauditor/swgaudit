@@ -1,9 +1,7 @@
 /* Intro section for about page */
 .intro-section {
-  width: 100%;
-  margin: var(--space-xl);
-  padding: 0;
   text-align: center;
+  justify-content: center !important;
 }
 
 /* CSS Custom Properties */
@@ -16,60 +14,38 @@
   --color-black: #000000;
 }
 
-/* Container utility */
-.container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding-left: var(--space-md);
-  padding-right: var(--space-md);
-}
-
 /* Hero section */
 .hero {
   text-align: center;
+  flex-direction: column;
 }
 
 .hero-title {
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.28;
+  font-size: 2rem;
   color: var(--color-swg-black);
 }
 
 .hero-subtitle {
-  font-family: var(--font-albert);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.6px;
   color: var(--color-black);
-  max-width: 842px;
-  margin: 0 auto var(--space-xl);
-}
-
-/* Warning section */
-.warning-section {
-  display: flex;
-  flex-direction: column;
-  max-width: 942px;
-  margin: 0 auto var(--space-2xl);
-  gap: var(--space-md);
+  max-width: 60ch;
 }
 
 .warning-item {
   flex: 1;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--size-sm) var(--size-md);
 }
 
 .warning-item:last-child {
   border-top: 1px solid var(--color-swg-orange-border);
-  padding-top: var(--space-lg);
+  padding-top: var(--size-lg);
 }
 
 .warning-content {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-md);
+  gap: var(--size-md);
+  justify-content: center;
+  align-items: center;
 }
 
 .warning-icon {
@@ -107,7 +83,7 @@
 /* Section headings */
 .section-heading {
   text-align: center;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--size-md);
 }
 
 .section-heading h2 {
@@ -123,7 +99,7 @@
 /* Description */
 .description {
   text-align: center;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--size-xl);
 }
 
 .description p {
@@ -139,7 +115,7 @@
 
 /* Feature section */
 .feature-section {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--size-2xl);
 }
 
 .feature-container {
@@ -149,15 +125,6 @@
   max-width: 1031px;
   margin: 0 auto;
   overflow: hidden;
-}
-
-.feature-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--space-lg);
-  min-height: 280px;
-  gap: var(--space-lg);
 }
 
 .feature-icon {
@@ -184,11 +151,6 @@
 }
 
 .feature-text p {
-  font-family: var(--font-albert);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.72px;
   color: var(--color-black);
   max-width: 562px;
   margin: 0 auto;
@@ -197,15 +159,10 @@
 /* Call to action */
 .cta {
   text-align: center;
-  padding-bottom: var(--space-2xl);
+  padding-bottom: var(--size-2xl);
 }
 
 .cta p {
-  font-family: var(--font-albert);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.72px;
   color: var(--color-black);
   max-width: 591px;
   margin: 0 auto;
@@ -224,21 +181,10 @@
   border: 0;
 }
 
-
-.container {
-  padding-left: var(--space-xl);
-  padding-right: var(--space-xl);
-}
-
 .hero-title {
   font-size: 32px;
   line-height: 41px;
-  margin-bottom: var(--space-lg);
-}
-
-.hero-subtitle {
-  font-size: 20px;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--size-lg);
 }
 
 .warning-text {
@@ -246,7 +192,7 @@
 }
 
 .section-heading {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--size-lg);
 }
 
 .section-heading h2 {
@@ -255,7 +201,7 @@
 }
 
 .description {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--size-2xl);
 }
 
 .description p {
@@ -263,12 +209,7 @@
 }
 
 .feature-section {
-  margin-bottom: var(--space-3xl);
-}
-
-.feature-content {
-  padding: var(--space-xl);
-  min-height: 328px;
+  margin-bottom: var(--size-3xl);
 }
 
 .feature-icon-circle {
@@ -281,7 +222,7 @@
 }
 
 .cta {
-  padding-bottom: var(--space-4xl);
+  padding-bottom: var(--size-4xl);
 }
 
 .cta p {
@@ -291,20 +232,22 @@
 .warning-item:last-child {
   border-top: none;
   border-left: 1px solid var(--color-swg-orange-border);
-  padding-top: var(--space-sm);
-  padding-left: var(--space-lg);
+  padding-top: var(--size-sm);
+  padding-left: var(--size-lg);
 }
 
 .warning-section {
   flex-direction: row;
   gap: 0;
+  gap: var(--size-md);
 }
 
 .feature-content {
   flex-direction: row;
-  padding: var(--space-2xl);
+  padding: var(--size-2xl);
   align-items: center;
   text-align: left;
+  gap: var(--size-lg);
 }
 
 .feature-text {

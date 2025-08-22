@@ -31,14 +31,15 @@ function changeSimulationState(stepID) {
             dataTheftForm.reset();
             selectedFile = null;
             uploadButton.disabled = true;
-            uploadArea.hidden = false;
-            resetContainer.hidden = true;
-            fileDetails.hidden = true;
-            dataTheftForm.hidden = false;
+
+            uploadArea.style.display = "flex";
+            resetContainer.style.display = "none"
+            fileDetails.style.display = "none"
+            dataTheftForm.style.display = "flex";
             break;
         case 2:
-            uploadArea.hidden = true;
-            fileDetails.hidden = false;
+            uploadArea.style.display = "none"
+            fileDetails.style.display = "flex";
             uploadButton.disabled = false;
             break;
         case 3:
@@ -59,12 +60,12 @@ function changeSimulationState(stepID) {
                 timeLeft--;
             }, 1000);
 
-            resetContainer.hidden = false;
-            dataTheftForm.hidden = true;
-            uploadArea.hidden = true;
-            fileDetails.hidden = false;
-            downloadButton.hidden = false;
-            copyBtn.hidden = false;
+            resetContainer.style.display = "flex";
+            dataTheftForm.style.display = "none"
+            uploadArea.style.display = "none"
+            fileDetails.style.display = "flex";
+            downloadButton.style.display = "flex";
+            copyBtn.style.display = "flex";
             uploadButton.disabled = true;
             break;
         default:
@@ -74,6 +75,7 @@ function changeSimulationState(stepID) {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing event listeners');
+    changeSimulationState(1);
 
     // Initialize remove button handler
     if (removeFileBtn) {

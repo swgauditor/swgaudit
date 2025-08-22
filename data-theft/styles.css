@@ -71,7 +71,6 @@
 .upload-area:not([hidden]) {
   display: flex;
   min-height: 12.5rem;
-  min-width: 7.5rem;
   padding: 1.25rem;
   margin: 1rem 0;
   flex-direction: column;
@@ -116,7 +115,7 @@
 /* File deletion notice */
 .deletion-notice {
   color: #FFF;
-  text-align: center;
+  justify-content: center;
   font-weight: 400;
   /* FLUID TYPOGRAPHY: Scales from 15px to 16px */
   font-size: clamp(0.9375rem, 0.9rem + 0.25vw, 1rem);

@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const resetBtn = document.getElementById('resetBtn');
 
     resetBtn.addEventListener('click', function() {
-        // Reset form values
         form.reset();
-        form.hidden = false; // Show form
-        resetContainer.hidden = true; // Hide results panel
+        
+        form.style.display = "flex";
+        resetContainer.style.display = "none";
         
         // Clear captured credentials
         capturedCredentials.textContent = '';

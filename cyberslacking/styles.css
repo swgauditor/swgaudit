@@ -3,6 +3,12 @@
 /* - Mobile-First, Fluid, and Accessible -   */
 /* ========================================= */
 
+.video-category-container{
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
 /* Main panel container */
 .dropdown-panel {
   display: flex;
