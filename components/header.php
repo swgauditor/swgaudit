@@ -13,6 +13,12 @@
 		</a>
 	</nav>
 	<nav class="hamburger">
+		<button class="menu-toggle" aria-label="Open menu" aria-controls="menu-group" aria-expanded="false">
+			<!-- Icon: three bars -->
+			<svg width="28" height="28" viewBox="0 0 24 24" role="img" aria-hidden="true">
+			<path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+			</svg>
+		</button>
 	</nav>
 	<nav>
 		<a href="/phishing/">Phishing</a>
