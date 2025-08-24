@@ -40,7 +40,7 @@ header {
 /* header, */
 main,
 footer,
-div,
+/* div, */
 section,
 article,
 nav,
@@ -54,6 +54,18 @@ aside {
   justify-content: space-between;
   align-items: center;
 }
+
+div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  /* flex: 1; */
+  justify-content: space-between;
+  align-items: center;
+}
+
 h1,
 h2,
 h3,
@@ -244,6 +256,7 @@ nav a:not(.active):hover {
   #hamburger-button {
     border: none;
     background-color: transparent;
+    padding: 0;
   }
   nav ul.active {
     display: flex;
@@ -427,7 +440,7 @@ main > section:first-of-type {
   padding: 1.5625rem 1.3125rem;
   gap: var(--size-xs);
   text-align: center;
-  min-width: 10ch;
+  /* min-width: 10ch; */
 }
 .content-box:hover {
   background-color: #3a3a38;
@@ -475,7 +488,7 @@ main > section:first-of-type {
   gap: 1.5rem;
   margin: 0 auto;
   color: #c5c5c5;
-  flex: 1 0 20%;
+  flex: 1 0 clamp(30ch, 20%, 50ch);
   align-items: stretch;
   justify-content: flex-start;
 }
@@ -492,9 +505,11 @@ form > div label {
   color: #c5c5c5;
   flex: 1;
   text-align: left;
+  margin: auto 0;
 }
 form > div input {
   width: 100%;
+  /* min-width: 15ch; */
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   border: 1px solid #efefef;
@@ -506,6 +521,7 @@ form > div input {
   opacity: 0.8;
   flex: 2;
 }
+
 .disclaimer-text {
   color: #ffffff;
   font-size: 1rem; /* 16px */
@@ -546,6 +562,11 @@ button {
 .test-failed h3 {
   margin: 0;
   padding: 0;
+}
+
+.failure-text,
+#results-text {
+  color: white;
 }
 .results-data {
   background-color: #1e1e1e;
