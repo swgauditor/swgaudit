@@ -1,0 +1,69 @@
+.hero-title {
+    padding: 1.5em 0 0.5em 0;
+    text-align: left;
+}
+
+.content-article {
+    color: #222;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    max-width: 70vw;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.content-article h2 {
+    font-size: 1.35rem;
+    margin-top: 2.2em;
+    margin-bottom: 0.7em;
+    font-weight: 600;
+    color: var(--brand-primary);
+}
+
+.content-article h3 {
+    font-size: 1.1rem;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: #6d2b20;
+}
+
+.content-article p {
+    margin: 0.7em 0 1.1em 0;
+}
+
+.content-article ul, .content-article ol {
+    margin: 0.5em 0 1.2em 1.5em;
+    padding-left: 1.2em;
+    list-style: disc;
+}
+
+.content-article li {
+    margin-bottom: 0.5em;
+}
+
+.content-article hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 2em 0 1.5em 0;
+}
+
+.content-article strong {
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .content-article {
+        font-size: 0.98rem;
+        padding: 0 0.5em;
+    }
+
+    .content-article h2 {
+        font-size: 1.1rem;
+    }
+
+    .content-article h3 {
+        font-size: 1rem;
+    }
+}

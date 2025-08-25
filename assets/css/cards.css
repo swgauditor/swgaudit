@@ -1,0 +1,243 @@
+/* ================================================== */
+/* Threat Cards CSS (Revised Expert Refactoring)      */
+/* - Solves overflow, improves visual layout, & is DRY - */
+/* ================================================== */
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Center cards */
+  gap: 10px;
+  padding-bottom: 4rem;
+}
+
+.cards-grid > a {
+  text-decoration: none;
+  color: inherit;
+  flex: 25%;
+  max-width: clamp(100px, 24%, 40ch);
+  aspect-ratio: 339 / 330;
+}
+
+
+.card{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 4px solid transparent;
+  box-shadow: 0px 4px 4px 0px #ffe4bc inset;
+  padding: clamp(1rem, 1.5vw, 1.5rem); /* Fluid padding */
+  background: rgba(251, 188, 102, 0.2);
+  background-size: clamp(200px,100%,600px);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  height: 100%; /* Ensures card fills its container */
+  align-items: center;
+}
+
+.card:hover {
+  /* background-position: bottom center; */
+  border: 2px solid #ffe7c7;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  /* transform: translate(0%,0%); */
+}
+
+.card-art {
+  background-size: clamp(200px,100%,600px);
+  background-position: top center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 200px;
+  margin-top: 1rem;
+  transform: translate(20%,20%)
+}
+
+.phishing-bg {
+  background-image: url('/assets/images/phishing.png');
+}
+
+.malware-bg {
+  background-image: url('/assets/images/malware.png');
+}
+
+.data-theft-bg {
+  background-image: url('/assets/images/data-theft.png');
+}
+
+.cyberslacking-bg {
+  background-image: url('/assets/images/cyberslacking.png');
+}
+
+.card h3{
+  color: #111111;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s ease-in-out;
+  /* FLUID TYPOGRAPHY: Scales smoothly and safely */
+  font-size: clamp(1.3rem, 1rem + 1.2vw, 1.75rem);
+  letter-spacing: -0.03em;
+}
+
+.card p{
+  color: #845e25;
+  line-height: 1.4;
+  transition: color 0.2s ease-in-out;
+}
+
+@media (max-width: 1130px) {
+  .cards-grid > a {
+    flex: 50%;
+    max-width: clamp(100px, 49%, 800px);
+  }
+}
+
+@media (max-width: 580px) {
+  .cards-grid > a {
+    flex: 100%;
+    max-width: clamp(200px, 100%, 100%);
+  }
+}
+
+
+
+/* --- The Threat Card --- */
+.threat-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 28.125rem; /* 450px */
+  cursor: pointer;
+  overflow: hidden;
+  background: rgba(251, 188, 102, 0.2);
+  border-radius: 0.625rem; /* 10px */
+  
+  /* Desktop-first borders for the layered look */
+  border: 4px solid transparent;
+  border-top-color: #ffe7c7;
+  border-bottom-color: #ffe7c7;
+
+  box-shadow: 0px 4px 4px 0px #ffe4bc inset;
+  aspect-ratio: 400/500; /* Taller aspect ratio for desktop */
+
+  transition: transform 0.2s cubic-bezier(.4,2,.6,1), 
+              box-shadow 0.2s,
+              border-color 0.2s;
+  padding: 1.5rem;
+}
+
+/* --- Card Content & Text --- */
+.card-title {
+  color: #111111;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s ease-in-out;
+  /* FLUID TYPOGRAPHY: Scales smoothly and safely */
+  font-size: clamp(1.3rem, 1rem + 1.2vw, 1.75rem);
+  letter-spacing: -0.03em;
+}
+
+.card-description {
+  color: #845e25;
+  font-family: "Inter", sans-serif;
+  line-height: 1.4;
+  transition: color 0.2s ease-in-out;
+  /* FLUID TYPOGRAPHY */
+  font-size: clamp(0.9rem, 0.8rem + 0.5vw, 1.1rem);
+  letter-spacing: -0.03em;
+  max-width: 35ch; /* Limit line length for readability */
+}
+
+/* --- The Image --- */
+.threat-card img {
+  position: absolute;
+  right: -3.75rem; /* -60px */
+  bottom: -5rem; /* -80px */
+  width: auto;
+  height: 80%; /* Scales with viewport, but constrained by max-height */
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.2s;
+}
+
+/* --- Hover Effects --- */
+.threat-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+  border-left-color: #ffe7c7;
+  border-right-color: #ffe7c7;
+  z-index: 2;
+}
+.threat-card:hover .card-title {
+  color: #88392b;
+}
+.threat-card:hover .card-description {
+  color: #6b4423;
+}
+.threat-card:hover img {
+  transform: scale(1.4); /* Only scale the image, no rotation */
+}
+
+/* ======================================================= */
+/* Mobile-Specific Overrides (for smaller card appearance) */
+/* ======================================================= */
+
+@media (max-width: 48em) { /* 768px */
+
+  .threat-card {
+    /* Change to a shorter aspect ratio for mobile */
+    aspect-ratio: 400/350;
+
+    /* The KEY FIX: Add bottom padding to create a "safe zone" for the image.
+       This prevents the text from ever flowing over the image. */
+    padding-bottom: 8rem;
+
+    /* Mobile uses a simpler shadow and flat border */
+    box-shadow: 0 4px 12px rgba(122, 58, 36, 0.08);
+    border-color: #ffe7c7;
+  }
+  
+  .card-content {
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  /* Adjust image position for the shorter mobile card */
+  .threat-card img {
+    right: -2.5rem; /* -40px */
+    bottom: -1.5rem; /* -24px */
+    height: 35vw;
+    max-height: 10.5rem; /* 168px */
+    min-height: 7.5rem; /* 120px */
+  }
+
+  /* Tone down hover effects on mobile where there is no "hover" */
+  .threat-card:hover {
+    transform: translateY(-5px); /* A more subtle lift effect */
+    box-shadow: 0 8px 20px rgba(122, 58, 36, 0.15);
+  }
+  .threat-card:hover img {
+    transform: none; /* Disable image hover on mobile */
+  }
+}
+
+/* --- General Link Style --- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Print Styles --- */
+@media print {
+  .threat-card {
+    box-shadow: none;
+    border: 2px solid #ccc;
+  }
+  .threat-card:hover {
+    transform: none;
+  }
+}

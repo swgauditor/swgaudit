@@ -1,77 +1,161 @@
 <?php
-    $title = "Data‑Theft Test - SWG Audit";
-    $description = "Evaluate your Secure Web Gateway's ability to detect and block data exfiltration via DNS tunneling.";
-    $keywords = "SWG, Data Theft Test, DNS Tunneling, Secure Web Gateway, Cybersecurity";
-    $url = "https://data-theft.swgaudit.com";
+$title = "Data‑Theft Test - SWG Audit";
+$description = "Evaluate your Secure Web Gateway's ability to detect and block data exfiltration via DNS tunneling.";
+$keywords = "SWG, Data Theft Test, DNS Tunneling, Secure Web Gateway, Cybersecurity";
+$url = "https://www.swgaudit.com/cyberslacking";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    
-    <title><?php echo $title ?></title>
+	<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo $description ?>" >
-    <meta name="keywords" content="<?php echo $keywords ?>" >
-    <meta name="author" content="SWG Audit">
+	<title><?php echo $title ?></title>
 
-    <meta property="og:title" content="<?php echo $title ?>" >
-    <meta property="og:description" content="<?php echo $description ?>" >
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="<?php echo $url ?>" >
-    <meta property="og:image" content="<?php echo $url ?>/opengraph.png" >
-    
-    <link rel="icon" href="https://swgaudit.com/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://swgaudit.com/images/apple-touch-icon.png">
-    
-    <link rel="stylesheet" href="https://swgaudit.com/globals.css">
-    <link rel="stylesheet" href="styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="<?php echo $description ?>">
+	<meta name="keywords" content="<?php echo $keywords ?>">
+	<meta name="author" content="SWG Audit">
+
+	<meta property="og:title" content="<?php echo $title ?>">
+	<meta property="og:description" content="<?php echo $description ?>">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="<?php echo $url ?>">
+
+	<link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+	<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+
+	<link rel="stylesheet" href="/assets/css/global.css" />
+	<link rel="stylesheet" href="styles.css">
+
 </head>
-<body>
-    <?php include '../snippets/header.php' ?>
-    <main>
-    <h1>Can Your <span class="blue-text">Perimeter Security</span> stop Data Exfiltration?</h1>
-    <p class="note">
-        In a typical DNS Tunneling attack, an attacker encodes sensitive data in subdomains of DNS queries.<br>
-        When the DNS quersies reach the attacker's name server, stolen data is decoded and reassembled.
-    </p>
-    <div class="container">
-        <form id="data-theft-form" method="post">
-            <h2>Unauthorised File Upload Simulation</h2>
-            <div class="upload-area form-group" id="upload-area">
-                <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
-                </svg>
-                <p class="upload-text">Drag and drop or click to upload a file</p>
-                <p class="constraints">Maximum file size: 100 KB</p>
-            </div>
-            <input type="file" id="fileUpload" hidden>
-        </form>
-        <div class="failure-container hidden" id="failure-container">
-            <h2>SWG FAILED</h2>
-            <p class="note">File uploaded to the server</p>
-            <div class="button-container">
-                <button id="download-button" class="">
-                    Download File
-                </button>
-                <br>
-                <button id="copy-button" class="">
-                    Copy Download Link
-                </button>
-            </div>
-            <br>
-            <button type="button" id="reset-button">Reset Test</button>
-        </div>
-        <p id="timer" class="timer">File will be deleted from the server in 10 minutes</p>
-    </div>
-    <h3>Your Perimeter Security must be able to detect and limit DNS Tunneling, while ensuring a threshold for business traffic</h3>
 
-    </main>
-    <?php include '../snippets/footer.php' ?>
-    <script src="https://swgaudit.com/global.js"></script>
-    <script src="base32.js"></script>
-    <script src="script.js"></script>
+<body>
+
+	<!-- Navigation -->
+	<?php include '../components/header.php'; ?>
+
+
+	<!-- Main Content -->
+	<main>
+		<!-- Top section with Hero and Video -->
+		<section>
+			<!-- Hero Content -->
+			<div class="hero-content">
+				<h1>
+					Evaluate your Perimeter Security against 
+					<span class="text-red">Data Exfiltration</span>
+				</h1>
+				<p>
+					A typical insider data breach might go like this: the attacker registers a new, unused domain, sets up a
+					custom DNS name server under their control, and allows the domain to be passively categorised as benign.
+					During the zero-hour window, before threat intelligence feeds catch on, the insider begins encoding and
+					transmitting sensitive data through outbound DNS queries. The organisation sees only routine DNS traffic,
+					while critical data is siphoned off—undetected, unlogged, and uninterrupted.			</p>
+			</div>
+
+			<!-- Video Section -->
+			<div class="video-section">
+				<div class="video-placeholder">
+					<iframe
+						src="https://www.youtube.com/embed/49F0co_VrTY"
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen
+						style="height: 100%;width: 100%;">
+					</iframe>
+				</div>
+		</div>
+		</section>
+
+		<!-- Simulation Section -->
+		<section>
+			<div class="tablet-wrapper">
+				<div class="tablet-inner">
+					<!-- Tab Header -->
+					<div class="tablet-header">
+						<h2 class="tablet-title">DNS Tunneling Simulation</h2>
+					</div>
+
+					<!-- Content Grid -->
+					<div class="content-flex">
+						<!-- Instructions Panel -->
+						<div class="content-box instruction-panel">
+							<h3>Simulation Instructions</h3>
+							<p class="instruction-text">
+								Before testing, ensure your SWG and DLP controls are fully enforced on swgaudit.com, including DNS inspection and outbound content policies. This simulation uploads a file using DNS tunnelling, mimicking stealth exfiltration. The file is deleted from the server after 10 minutes.
+							</p>
+							<p class="warning-text">
+								If no data is received, or transmission is disrupted mid-way, your perimeter security has passed.
+							</p>
+							<p class="success-text">
+								If the full file is exfiltrated, your perimeter security has failed.
+							</p>
+						</div>
+
+						<form class="content-box form-panel" id="data-theft-form" method="POST">
+							<h3>Test Data Leakage Prevention</h3>
+						
+							<div class="upload-area" id="upload-area">
+								<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M16.0832 27.4166H18.9165V21.5021L21.1832 23.7687L23.1665 21.75L17.4998 16.0833L11.8332 21.75L13.8519 23.7333L16.0832 21.5021V27.4166ZM8.99984 31.6666C8.22067 31.6666 7.55366 31.3892 6.9988 30.8344C6.44393 30.2795 6.1665 29.6125 6.1665 28.8333V6.16665C6.1665 5.38748 6.44393 4.72047 6.9988 4.1656C7.55366 3.61074 8.22067 3.33331 8.99984 3.33331H20.3332L28.8332 11.8333V28.8333C28.8332 29.6125 28.5557 30.2795 28.0009 30.8344C27.446 31.3892 26.779 31.6666 25.9998 31.6666H8.99984ZM18.9165 13.25V6.16665H8.99984V28.8333H25.9998V13.25H18.9165Z"
+										fill="white" />
+								</svg>
+								<p class="upload-text">Drag and drop or click to select a file</p>
+								<p class="constraints">Maximum file size: 100 KB</p>									
+							</div>
+							<!-- File selected state -->
+							<div class="file-details" id="file-details">
+								<div class="file-info">
+									<span class="file-name" id="selected-filename"></span>
+									<span class="file-size" id="selected-filesize"></span>
+								</div>
+								<button id="removeFile" type="button" class="remove-file" aria-label="Remove selected file">✕</button>
+							</div>
+							<input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.gif,.txt,.doc,.docx" hidden>
+							<button type="button" id="uploadButton" class="submit-button" disabled >Upload File</button>
+							<div class="deletion-notice">
+								File will be deleted from the server in 10 minutes
+							</div>
+						</form>
+
+						<div class="content-box reset-container failed" id="reset-container">
+							<div class="test-failed">
+								<h3>Your Perimeter Security Failed</h3>
+								<p class="failure-text">
+									File upload to the server should have been blocked.
+								</p>
+							</div>
+
+							<div class="results-data">
+								<h4>Data Stolen</h4>
+								<div class="button-container">
+									<button class="download-button" id="download-button">Download File</button>
+									<br>
+									<button class="copy-button" id="copy-button">Copy File URL</button>
+								</div>
+							</div>
+
+							<button type="button" id="resetBtn" class="reset-button">
+								Reset Test
+							</button>
+
+							<div id="timer" class="deletion-notice">
+								File will be deleted from the server in 10 minutes
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<?php include '../components/footer.php'; ?>
+	<script src="script.js"></script>
+	<script src="base32.js"></script>
 </body>
+
 </html>
