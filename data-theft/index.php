@@ -122,20 +122,14 @@ $url = "https://www.swgaudit.com/cyberslacking";
 						</form>
 
 						<div class="content-box reset-container failed" id="reset-container">
-							<div class="test-failed">
-								<h3>Your Perimeter Security Failed</h3>
-								<p class="failure-text">
-									File upload to the server should have been blocked.
-								</p>
-							</div>
+							<h3>Your Perimeter Security Failed</h3>
+							<p class="failure-text">
+								File upload to the server should have been blocked.
+							</p>
 
 							<div class="results-data">
-								<h4>Data Stolen</h4>
-								<div class="button-container">
-									<button class="download-button" id="download-button">Download File</button>
-									<br>
-									<button class="copy-button" id="copy-button">Copy File URL</button>
-								</div>
+								<h4>File Successfully uploaded</h4>
+								<p id="results-text"></p>
 							</div>
 
 							<button type="button" id="resetBtn" class="reset-button">

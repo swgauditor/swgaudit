@@ -8,9 +8,8 @@ const fileName = document.getElementById('selected-filename');
 const fileSize = document.getElementById('selected-filesize');
 const uploadButton = document.getElementById('uploadButton');
 const timerElement = document.getElementById('timer');
-const copyBtn = document.getElementById('copy-button');
-const downloadButton = document.getElementById("download-button");
 const resetContainer = document.getElementById('reset-container');
+const resultsText = document.getElementById('results-text');
 const resetBtn = document.getElementById('resetBtn');
 
 function generateRandomId() {
@@ -64,8 +63,6 @@ function changeSimulationState(stepID) {
             dataTheftForm.style.display = "none"
             uploadArea.style.display = "none"
             fileDetails.style.display = "flex";
-            downloadButton.style.display = "flex";
-            copyBtn.style.display = "flex";
             uploadButton.disabled = true;
             break;
         default:
@@ -236,20 +233,8 @@ async function handleFileUpload(file) {
             
             if (data.success && data.fileUrl) {
                 console.log('File upload successful, updating UI with URL:', data.fileUrl);
-
-                // Update download button with file URL
-                downloadButton.onclick = (e) => {
-                    window.open(data.fileUrl, '_blank');
-                }
-                
-                // Update copy button handler
-                copyBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    copyToClipboard(data.fileUrl);
-                    copyBtn.classList.add('copied');
-                    setTimeout(() => copyBtn.classList.remove('copied'), 2000);
-                };
-
+                // Create a clickable link and append to resultsText
+                resultsText.innerHTML = `<a class="underline" href="${data.fileUrl}" target="_blank" rel="noopener noreferrer">Visit File URL</a>`;
                 changeSimulationState(3);
 
             }
@@ -260,22 +245,6 @@ async function handleFileUpload(file) {
         }
     };
     reader.readAsArrayBuffer(file);
-}
-
-function copyToClipboard(text) {
-    console.log('Copying to clipboard:', text);
-    navigator.clipboard.writeText(text).then(() => {
-        console.log('Successfully copied to clipboard');
-        const btn = document.getElementById('copy-button');
-        const originalText = btn.textContent;
-        btn.textContent = 'Copied!';
-        setTimeout(() => {
-            console.log('Resetting button text');
-            btn.textContent = originalText;
-        }, 2000);
-    }).catch(err => {
-        console.error('Failed to copy:', err);
-    });
 }
 
 function formatBytes(bytes) {

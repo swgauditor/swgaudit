@@ -45,7 +45,10 @@ try {
     }
 
     // Updated regex to match multiple data chunks
-    preg_match_all('/queries: info: client @[^\s]+ [^#]+#\d+ \(' . $id . '\.(\d+)\.([a-z0-9\.]+)\.swgaudit\.com\): query: ' . $id . '\.\1\.\2\.swgaudit\.com IN [A].*/', $recentLog, $matches);
+
+    $bind_regex = '/queries: info: client @\S+ [^#]+#\d+ \(' . $id . '\.(\d+)\.([A-Za-z0-9.]+)\.swgaudit\.com\): query: ' . $id . '\.\1\.\2\.swgaudit\.com IN A.*/i';
+    logMessage("Using regex: $bind_regex");
+    preg_match_all($bind_regex, $recentLog, $matches);
 
     logMessage("Found " . count($matches[1]) . " DNS query matches");
     

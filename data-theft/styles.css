@@ -121,41 +121,6 @@
   font-size: clamp(0.9375rem, 0.9rem + 0.25vw, 1rem);
 }
 
-/* Common container for button groups */
-.button-container {
-  display: flex;
-  width: 100%; /* Changed from fixed width to be responsive */
-  align-items: center;
-  gap: 0.75rem; /* 12px */
-}
-
-/* Shared button styles */
-.download-button,
-.copy-button {
-  display: flex;
-  height: 3.9375rem; /* 63px */
-  min-width: 7.5rem; /* 120px */
-  padding: 0.75rem 1.5rem; /* 12px 24px */
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem; /* 8px */
-  flex: 1 0 0;
-  background: #FFF;
-  color: #000;
-  text-align: center;
-  font-family: "Albert Sans", sans-serif;
-  font-weight: 400;
-  line-height: normal;
-  border: none; /* Base reset */
-}
-
-/* Specific button styles */
-.download-button,
-.copy-button {
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
-  font-size: 0.9375rem; /* 15px */
-  letter-spacing: 0.048em; /* 0.72px / 15px */
-}
 /* =========================================== */
 /* Responsive Queries (Simplified Mobile-First) */
 /* =========================================== */
