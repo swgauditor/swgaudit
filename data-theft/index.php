@@ -88,10 +88,10 @@ $url = "https://www.swgaudit.com/cyberslacking";
 								Before testing, ensure your SWG and DLP controls are fully enforced on swgaudit.com, including DNS inspection and outbound content policies. This simulation uploads a file using DNS tunnelling, mimicking stealth exfiltration. The file is deleted from the server after 10 minutes.
 							</p>
 							<p class="warning-text">
-								If no data is received, or transmission is disrupted mid-way, your perimeter security has passed.
+								If the full file is exfiltrated, your perimeter security has failed.
 							</p>
 							<p class="success-text">
-								If the full file is exfiltrated, your perimeter security has failed.
+								If no data is received, or transmission is disrupted mid-way, your perimeter security has passed.	
 							</p>
 						</div>
 
